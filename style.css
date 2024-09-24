@@ -2,12 +2,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
-    display: flex;
     justify-content: center;
 }
 
 header {
     width: 100%;
+    display: block;
 }
 
 .header-box {
@@ -77,3 +77,21 @@ p {
     border: none;
     cursor: pointer;     
 }
+
+.sort-adjustement {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 120px;;
+    max-width: 1440px;
+    gap: 50px;
+  }
+
+.search-container {
+    border: 1px solid #C6C6C6;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
