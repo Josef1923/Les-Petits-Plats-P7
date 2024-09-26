@@ -4,7 +4,7 @@ class SortComponent extends HTMLElement {
 
         // Créer le conteneur des boutons
         const container = document.createElement('div');
-        container.classList.add('sort-container');
+        container.classList.add('filter-container');
 
         // Bouton pour Ingrédients
         const sortIngredientsButton = document.createElement('button');
@@ -14,12 +14,12 @@ class SortComponent extends HTMLElement {
         // Bouton pour Appareils
         const sortApplianceButton = document.createElement('button');
         sortApplianceButton.innerHTML = 'Appareils <img src="assets/icons/vector1.svg">';
-        sortApplianceButton.id = 'sort-appliance';
+        sortApplianceButton.id = 'filter-appliance';
 
         // Bouton pour Ustensiles
         const sortUstensilsButton = document.createElement('button');
         sortUstensilsButton.innerHTML = 'Ustensiles <img src="assets/icons/vector1.svg">';
-        sortUstensilsButton.id = 'sort-ustensils';
+        sortUstensilsButton.id = 'filter-ustensils';
 
         // Ajouter les boutons dans le conteneur
         container.appendChild(sortIngredientsButton);
@@ -32,4 +32,4 @@ class SortComponent extends HTMLElement {
 }
 
 // Déclarer le Web Component
-customElements.define('sort-component', SortComponent);
+customElements.define('filter-component', SortComponent);
