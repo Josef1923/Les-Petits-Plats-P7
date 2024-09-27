@@ -1,4 +1,4 @@
-class SortComponent extends HTMLElement {
+class FilterComponent extends HTMLElement {
     constructor() {
         super();
 
@@ -7,24 +7,24 @@ class SortComponent extends HTMLElement {
         container.classList.add('filter-container');
 
         // Bouton pour Ingrédients
-        const sortIngredientsButton = document.createElement('button');
-        sortIngredientsButton.innerHTML = 'Ingrédients <img src="assets/icons/vector1.svg">';
-        sortIngredientsButton.id = 'sort-ingredients';
+        const filterIngredientsButton = document.createElement('button');
+        filterIngredientsButton.innerHTML = 'Ingrédients <img src="assets/icons/vector1.svg">';
+        filterIngredientsButton.id = 'filter-ingredients';
 
         // Bouton pour Appareils
-        const sortApplianceButton = document.createElement('button');
-        sortApplianceButton.innerHTML = 'Appareils <img src="assets/icons/vector1.svg">';
-        sortApplianceButton.id = 'filter-appliance';
+        const filterApplianceButton = document.createElement('button');
+        filterApplianceButton.innerHTML = 'Appareils <img src="assets/icons/vector1.svg">';
+        filterApplianceButton.id = 'filter-appliance';
 
         // Bouton pour Ustensiles
-        const sortUstensilsButton = document.createElement('button');
-        sortUstensilsButton.innerHTML = 'Ustensiles <img src="assets/icons/vector1.svg">';
-        sortUstensilsButton.id = 'filter-ustensils';
+        const filterUstensilsButton = document.createElement('button');
+        filterUstensilsButton.innerHTML = 'Ustensiles <img src="assets/icons/vector1.svg">';
+        filterUstensilsButton.id = 'filter-ustensils';
 
         // Ajouter les boutons dans le conteneur
-        container.appendChild(sortIngredientsButton);
-        container.appendChild(sortApplianceButton);
-        container.appendChild(sortUstensilsButton);
+        container.appendChild(filterIngredientsButton);
+        container.appendChild(filterApplianceButton);
+        container.appendChild(filterUstensilsButton);
 
         // Ajouter le conteneur au Shadow DOM ou DOM du composant
         this.appendChild(container);
@@ -32,4 +32,4 @@ class SortComponent extends HTMLElement {
 }
 
 // Déclarer le Web Component
-customElements.define('filter-component', SortComponent);
+customElements.define('filter-component', FilterComponent);

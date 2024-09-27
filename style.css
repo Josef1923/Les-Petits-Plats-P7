@@ -11,11 +11,11 @@ header {
 }
 
 .header-box {
-    max-width: 1440px; 
-    width: 100%; 
+    max-width: 1440px;
+    width: 100%;
     height: 667px;
     position: relative;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 header img {
@@ -24,20 +24,20 @@ header img {
     object-fit: cover;
     position: absolute;
     left: 0;
-    top: 0;    
+    top: 0;
     z-index: -1;
 }
 
 h1 {
     color: white;
     z-index: 1;
-    font-family:'Anton', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-size: 48px;
     margin: 0;
     margin-left: 80px;
 }
 
-p {
+.paragraph {
     font-family: 'Anton', sans-serif;
     color: #FFD15B;
     z-index: 1;
@@ -55,7 +55,7 @@ p {
 
 .submit-button {
     position: relative;
-    width: 954px;   
+    width: 954px;
 }
 
 .bar {
@@ -63,7 +63,7 @@ p {
     height: 72px;
     border: none;
     font-size: 18px;
-    border-radius: 11px;    
+    border-radius: 11px;
     text-indent: 20px;
 }
 
@@ -75,7 +75,7 @@ p {
     top: 50%;
     transform: translateY(-50%);
     border: none;
-    cursor: pointer;     
+    cursor: pointer;
 }
 
 main {
@@ -83,25 +83,75 @@ main {
     width: 100%;
     background-color: #E5E5E5;
     margin: 0 auto;
-  }
+}
 
-.sort-container {
+.filter-container {
     display: flex;
-    padding-left: 50px;;
+    padding-left: 50px;
+    ;
     padding-top: 30px;
     gap: 30px;
-  }
+}
 
-  .sort-container button {
+.filter-container button {
     width: 195px;
-    height: 56px;   
+    height: 56px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     background-color: #FFFF;
     font-size: 16px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 20px;
-  }
+}
+
+.card-img-top {
+    height: 253px;
+}
+
+.card {    
+    border-radius: 21px;
+    overflow: hidden;
+    border: none;
+}
+
+.card-body {
+    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+    padding: 25px 32px;
+}
+
+.recipe-titles {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16.39px;
+    letter-spacing: 0.09em;
+    color: rgba(122, 122, 122, 1);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27.1px;
+    font-family: Anton;
+}
+
+.card-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.12px;
+    text-align: left;
+}
+
+.col-6 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.12px;
+    text-align: left;
+    color: rgba(27, 27, 27, 1);    
+}
+
+.quantity {
+    font-weight: 400;
+    color: rgba(122, 122, 122, 1);
+}
