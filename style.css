@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
-    justify-content: center;
 }
 
 header {
@@ -83,13 +82,14 @@ main {
     width: 100%;
     background-color: #E5E5E5;
     margin: 0 auto;
+    
 }
 
 .filter-container {
     display: flex;
-    padding-left: 50px;
-    ;
-    padding-top: 30px;
+    padding-left: 104px;
+    padding-top: 21px;
+    padding-bottom: 55px;
     gap: 30px;
 }
 
@@ -103,22 +103,39 @@ main {
     font-size: 16px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding-top: 20px;
 }
 
-.card-img-top {
-    height: 253px;
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 48px;
+    padding: 0 100px;
 }
 
-.card {    
+.card {
+    width: calc(33.33% - 32px);
     border-radius: 21px;
     overflow: hidden;
     border: none;
+    background-color: white;
+    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+    max-width: 380px;
+    height: 731px;
 }
 
 .card-body {
-    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-    padding: 25px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+    padding: 25px 32px 62px 32px;
+}
+.card-img-top {
+    height: 253px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .recipe-titles {
@@ -143,15 +160,28 @@ main {
     text-align: left;
 }
 
-.col-6 {
+.ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.ingredient {
+    width: 50%;
     font-size: 14px;
     font-weight: 500;
     line-height: 19.12px;
-    text-align: left;
-    color: rgba(27, 27, 27, 1);    
+    color: rgba(27, 27, 27, 1);   
 }
 
 .quantity {
     font-weight: 400;
     color: rgba(122, 122, 122, 1);
+}
+
+.ingredient-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(122, 122, 122, 1);
+    margin-top: 80px;
 }
