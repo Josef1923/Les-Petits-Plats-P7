@@ -6,28 +6,75 @@ class FilterComponent extends HTMLElement {
         const container = document.createElement('div');
         container.classList.add('filter-container');
 
-        // Bouton pour Ingrédients
-        const filterIngredientsButton = document.createElement('button');
-        filterIngredientsButton.innerHTML = 'Ingrédients <img src="assets/icons/vector1.svg">';
-        filterIngredientsButton.id = 'filter-ingredients';
+        // Créer le conteneur pour chaque bouton et son dropdown
+        const filterItemIngredients = this.createFilterItem('Ingrédients');
+        const filterItemAppliances = this.createFilterItem('Appareils');
+        const filterItemUstensils = this.createFilterItem('Ustensiles');
 
-        // Bouton pour Appareils
-        const filterApplianceButton = document.createElement('button');
-        filterApplianceButton.innerHTML = 'Appareils <img src="assets/icons/vector1.svg">';
-        filterApplianceButton.id = 'filter-appliance';
-
-        // Bouton pour Ustensiles
-        const filterUstensilsButton = document.createElement('button');
-        filterUstensilsButton.innerHTML = 'Ustensiles <img src="assets/icons/vector1.svg">';
-        filterUstensilsButton.id = 'filter-ustensils';
-
-        // Ajouter les boutons dans le conteneur
-        container.appendChild(filterIngredientsButton);
-        container.appendChild(filterApplianceButton);
-        container.appendChild(filterUstensilsButton);
+        // Ajouter les filtres dans le conteneur
+        container.appendChild(filterItemIngredients);
+        container.appendChild(filterItemAppliances);
+        container.appendChild(filterItemUstensils);
 
         // Ajouter le conteneur au Shadow DOM ou DOM du composant
         this.appendChild(container);
+    }
+
+    // Méthode pour créer un conteneur de filtre avec un bouton et son dropdown
+    createFilterItem(filterType) {
+        const filterItem = document.createElement('div');
+        filterItem.classList.add('filter-item');
+
+        const filterButton = document.createElement('button');
+        const icon = document.createElement('img');
+        icon.src = 'assets/icons/vector1.svg'; // Icon par défaut
+
+        filterButton.innerHTML = `${filterType}`;
+        filterButton.appendChild(icon);
+
+        const dropdown = this.createDropdown(filterType);
+        dropdown.classList.add('hidden');
+
+        filterItem.appendChild(filterButton);
+        filterItem.appendChild(dropdown);
+
+        // Attacher l'événement sur tout le bouton
+        filterButton.addEventListener('click', () => {
+            this.toggleDropdown(dropdown, icon);
+        });
+
+        return filterItem;
+    }
+
+    // Méthode pour créer un dropdown avec une barre de recherche et des options
+    createDropdown(filterType) {
+        const dropdown = document.createElement('div');
+        dropdown.classList.add('dropdown');
+
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.placeholder = `Rechercher ${filterType}`;
+        dropdown.appendChild(searchInput);
+
+        const optionsList = document.createElement('ul');
+        optionsList.innerHTML = `
+            <li>${filterType} Option 1</li>
+            <li>${filterType} Option 2</li>
+            <li>${filterType} Option 3</li>
+        `;
+        dropdown.appendChild(optionsList);
+
+        return dropdown;
+    }
+
+    // Méthode pour basculer l'affichage du dropdown et changer l'icône
+    toggleDropdown(dropdown, icon) {
+        dropdown.classList.toggle('hidden');
+        if (dropdown.classList.contains('hidden')) {
+            icon.src = 'assets/icons/vector1.svg';
+        } else {
+            icon.src = 'assets/icons/vector2.svg';
+        }
     }
 }
 

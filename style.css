@@ -91,6 +91,7 @@ main {
     padding-top: 21px;
     padding-bottom: 55px;
     gap: 30px;
+    flex-direction: row;
 }
 
 .filter-container button {
@@ -102,8 +103,10 @@ main {
     background-color: #FFFF;
     font-size: 16px;
     display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
+    justify-content: space-between;    
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .cards-container {
@@ -184,4 +187,46 @@ main {
     font-weight: 700;
     color: rgba(122, 122, 122, 1);
     margin-top: 80px;
+}
+
+.dropdown {
+    width: 195px; /* S'assurer que le dropdown a la même largeur que le bouton */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    position: absolute; /* Position absolue pour rester sous le bouton */
+    top: 70px; /* Ajuster selon la hauteur du bouton */
+    z-index: 1; /* Pour que le dropdown apparaisse au-dessus des autres éléments */
+}
+
+.hidden {
+    display: none; /* Cacher la dropdown par défaut */
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column; /* Aligner le bouton et son dropdown verticalement */
+    position: relative; /* Assurer que le dropdown reste sous le bouton */
 }
