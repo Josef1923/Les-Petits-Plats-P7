@@ -46,16 +46,27 @@ class FilterComponent extends HTMLElement {
         return filterItem;
     }
 
-    // Méthode pour créer un dropdown avec une barre de recherche et des options
+    // Méthode pour créer un dropdown avec une icône SVG uniquement, alignée à droite
     createDropdown(filterType) {
         const dropdown = document.createElement('div');
         dropdown.classList.add('dropdown');
 
+        // Créer l'input avec une bordure visible
         const searchInput = document.createElement('input');
         searchInput.type = 'text';
-        searchInput.placeholder = `Rechercher ${filterType}`;
-        dropdown.appendChild(searchInput);
+        searchInput.placeholder = ''; // Pas de texte
+        searchInput.classList.add('svg-input'); // Classe pour styliser l'input
 
+        // Créer l'icône SVG
+        const svgIcon = document.createElement('img');
+        svgIcon.src = 'assets/icons/loop2.svg';
+        svgIcon.classList.add('dropdown-icon');
+
+        // Ajouter l'input et l'icône dans le dropdown
+        dropdown.appendChild(searchInput);
+        dropdown.appendChild(svgIcon);
+
+        // Créer la liste d'options
         const optionsList = document.createElement('ul');
         optionsList.innerHTML = `
             <li>${filterType} Option 1</li>
@@ -66,6 +77,7 @@ class FilterComponent extends HTMLElement {
 
         return dropdown;
     }
+
 
     // Méthode pour basculer l'affichage du dropdown et changer l'icône
     toggleDropdown(dropdown, icon) {

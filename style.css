@@ -189,29 +189,43 @@ main {
     margin-top: 80px;
 }
 
+/* Style pour le dropdown */
 .dropdown {
-    width: 195px; /* S'assurer que le dropdown a la même largeur que le bouton */
+    width: 195px;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    margin-top: 5px;
+    background-color: white;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 10px;
-    position: absolute; /* Position absolue pour rester sous le bouton */
-    top: 70px; /* Ajuster selon la hauteur du bouton */
-    z-index: 1; /* Pour que le dropdown apparaisse au-dessus des autres éléments */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    top: 55px;
+    z-index: 1;
+}
+
+
+.svg-input {
+    width: 100%; 
+    height: 36px;
+    border: 1px solid rgba(198, 198, 198, 1);
+    border-radius: 2px;
+    font-size: 16px;
+    background-color: white;
+    position: relative;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 18px;
+    top: 12%;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
 }
 
 .hidden {
-    display: none; /* Cacher la dropdown par défaut */
-}
-
-input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: none;
 }
 
 ul {
@@ -227,6 +241,6 @@ ul li {
 
 .filter-item {
     display: flex;
-    flex-direction: column; /* Aligner le bouton et son dropdown verticalement */
-    position: relative; /* Assurer que le dropdown reste sous le bouton */
+    flex-direction: column;
+    position: relative;
 }
