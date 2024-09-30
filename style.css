@@ -109,6 +109,11 @@ main {
     padding-right: 16px;
 }
 
+.filter-container button.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .cards-container {
     display: flex;
     justify-content: space-between;
@@ -212,13 +217,13 @@ main {
     border-radius: 2px;
     font-size: 16px;
     background-color: white;
-    position: relative;
+    margin-top: -10px;
 }
 
 .dropdown-icon {
     position: absolute;
     right: 18px;
-    top: 12%;
+    top: 7%;
     width: 20px;
     height: 20px;
     z-index: 2;

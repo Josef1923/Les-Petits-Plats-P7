@@ -78,16 +78,20 @@ class FilterComponent extends HTMLElement {
         return dropdown;
     }
 
-
     // Méthode pour basculer l'affichage du dropdown et changer l'icône
     toggleDropdown(dropdown, icon) {
         dropdown.classList.toggle('hidden');
+        const filterButton = dropdown.previousElementSibling; // Obtenez le bouton parent
+
         if (dropdown.classList.contains('hidden')) {
             icon.src = 'assets/icons/vector1.svg';
+            filterButton.classList.remove('active'); // Retirer la classe active quand dropdown est caché
         } else {
             icon.src = 'assets/icons/vector2.svg';
+            filterButton.classList.add('active'); // Ajouter la classe active quand dropdown est visible
         }
     }
+
 }
 
 // Déclarer le Web Component
