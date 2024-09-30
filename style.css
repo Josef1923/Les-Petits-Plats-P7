@@ -120,6 +120,7 @@ main {
     flex-wrap: wrap;
     gap: 48px;
     padding: 0 100px;
+    padding-bottom: 100px;
 }
 
 .card {
@@ -130,7 +131,7 @@ main {
     background-color: white;
     box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
     max-width: 380px;
-    height: 731px;
+    height: auto;
 }
 
 .card-body {
@@ -138,10 +139,13 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100%; 
-    padding: 25px 32px 62px 32px;
+    padding-top: 25px;
+    padding-left: 32px;
 }
+
 .card-img-top {
-    height: 253px;
+    max-height: 253px;
+    min-height: 253px;
     object-fit: cover;
     width: 100%;
 }
@@ -166,12 +170,15 @@ main {
     font-weight: 400;
     line-height: 19.12px;
     text-align: left;
+    flex-grow: 1;
+    margin-bottom: 20px; /
 }
 
 .ingredients {
     display: flex;
     flex-wrap: wrap;
-    margin-top: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .ingredient {
@@ -188,10 +195,10 @@ main {
 }
 
 .ingredient-title {
+    margin-top: auto;
     font-size: 12px;
     font-weight: 700;
     color: rgba(122, 122, 122, 1);
-    margin-top: 80px;
 }
 
 /* Style pour le dropdown */
