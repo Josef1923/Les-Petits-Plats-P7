@@ -1,6 +1,6 @@
 // Fichier: javascript/webComponents/cardComponent.js
 
-// Définir une classe pour créer une carte
+// cLASSE DE CARD
 class Card {
     constructor(recipe) {
         this.id = recipe.id;
@@ -14,9 +14,9 @@ class Card {
         this.ustensils = recipe.ustensils;
     }
 
-    // Méthode pour générer le HTML d'une carte
+    // Génére le HTML
     generateCard() {
-        // Générer la liste des ingrédients en HTML
+        // Générer la liste des ingrédients 
         const ingredientsHTML = this.ingredients.map(ingredient => `
             <div class="ingredient">
                 ${ingredient.ingredient} 
