@@ -6,12 +6,9 @@ class Card {
         this.id = recipe.id;
         this.image = `assets/recettes/${recipe.image}`;
         this.name = recipe.name;
-        this.servings = recipe.servings;
         this.ingredients = recipe.ingredients;
         this.time = recipe.time;
         this.description = recipe.description;
-        this.appliance = recipe.appliance;
-        this.ustensils = recipe.ustensils;
     }
 
     // Génére le HTML
@@ -49,7 +46,6 @@ class Card {
 function generateCards(recipes) {
     const cardsContainer = document.querySelector(".cards-container");
 
-    // Vider le conteneur avant de générer de nouvelles cartes
     cardsContainer.innerHTML = "";
 
     // Boucle sur toutes les recettes et générer une carte pour chaque recette

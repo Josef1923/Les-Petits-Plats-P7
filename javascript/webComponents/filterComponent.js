@@ -2,7 +2,7 @@ class FilterComponent extends HTMLElement {
     constructor() {
         super();
 
-        // Extraire les ingrédients, appareils et ustensiles des recettes
+        // Extraire ingrédients, appareils et ustensiles des recettes
         const ingredients = this.getAllIngredients();
         const appliances = this.getAllAppliances();
         const ustensils = this.getAllUstensils();
@@ -16,7 +16,7 @@ class FilterComponent extends HTMLElement {
             </div>
         `;
 
-        // Ajouter les événements d'interaction avec les dropdowns
+        // Evénements d'interaction avec les dropdowns
         this.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', () => {
                 const dropdown = button.nextElementSibling;
@@ -26,7 +26,7 @@ class FilterComponent extends HTMLElement {
         });
     }
 
-    // Méthode pour générer le HTML d'un filtre avec une liste dynamique
+    // Générer le HTML filtre avec liste
     createFilterItemHTML(filterType, options) {
         return `
             <div class="filter-item">
@@ -44,7 +44,7 @@ class FilterComponent extends HTMLElement {
         `;
     }
 
-    // Méthode pour basculer l'affichage du dropdown et changer l'icône
+    // Basculer l'affichage du dropdown et changer l'icône
     toggleDropdown(dropdown, icon, button) {
         dropdown.classList.toggle('hidden');
         if (dropdown.classList.contains('hidden')) {
@@ -56,7 +56,7 @@ class FilterComponent extends HTMLElement {
         }
     }
 
-    // Méthode pour extraire tous les ingrédients des recettes
+    //Extraction ingrédients
     getAllIngredients() {
         const ingredientsSet = new Set();
 
@@ -66,10 +66,10 @@ class FilterComponent extends HTMLElement {
             });
         });
 
-        return Array.from(ingredientsSet).sort(); // Retourner une liste triée d'ingrédients uniques
+        return Array.from(ingredientsSet).sort();
     }
 
-    // Méthode pour extraire tous les appareils des recettes
+    // Extraction appareils
     getAllAppliances() {
         const appliancesSet = new Set();
 
@@ -77,10 +77,10 @@ class FilterComponent extends HTMLElement {
             appliancesSet.add(recipe.appliance);
         });
 
-        return Array.from(appliancesSet).sort(); // Retourner une liste triée d'appareils uniques
+        return Array.from(appliancesSet).sort();
     }
 
-    // Méthode pour extraire tous les ustensiles des recettes
+    // Extraction ustensiles
     getAllUstensils() {
         const ustensilsSet = new Set();
 
@@ -90,7 +90,7 @@ class FilterComponent extends HTMLElement {
             });
         });
 
-        return Array.from(ustensilsSet).sort(); // Retourner une liste triée d'ustensiles uniques
+        return Array.from(ustensilsSet).sort();
     }
 }
 
