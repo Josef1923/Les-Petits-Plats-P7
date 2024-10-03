@@ -16,7 +16,7 @@ class FilterComponent extends HTMLElement {
             </div>
         `;
 
-        // Evénements d'interaction avec les dropdowns
+        // Interaction avec les dropdowns
         this.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', () => {
                 const dropdown = button.nextElementSibling;
