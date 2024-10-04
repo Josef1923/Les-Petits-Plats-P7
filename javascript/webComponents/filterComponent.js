@@ -35,7 +35,7 @@ class FilterComponent extends HTMLElement {
                 </button>
                 <div class="dropdown hidden">
                     <input type="text" class="svg-input" placeholder="">
-                    <img src="assets/icons/loop2.svg" class="dropdown-icon" alt="Recherche">
+                    <img src="assets/icons/magnifyingGlassFilter.svg" class="dropdown-icon" alt="Recherche">
                     <ul>
                         ${options.map(option => `<li>${option}</li>`).join('')}
                     </ul>

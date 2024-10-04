@@ -66,11 +66,16 @@ header img {
     width: 51px;
     height: 52px;
     position: absolute;
-    right: 4px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
+    background-color: transparent;
+}
+
+.search-icon:hover img {
+    content: url('assets/icons/magnifyingGlassHoover.svg');
 }
 
 main {
@@ -258,6 +263,14 @@ main {
     padding: 0; 
 }
 
+.dropdown ul::-webkit-scrollbar {
+    width: 4px;
+}
+
+.dropdown ul::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
 
 .dropdown ul li {
     padding: 5px 0;
