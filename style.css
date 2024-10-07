@@ -198,7 +198,6 @@ main .filter-item .dropdown {
   width: 195px;
   padding-top: 10px;
   background-color: rgb(255, 255, 255);
-  margin-top: 0;
   display: flex;
   flex-direction: column;
   border-bottom-left-radius: 10px;
@@ -218,6 +217,7 @@ main .filter-item .dropdown .svg-input {
   font-size: 16px;
   background-color: white;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 main .filter-item .dropdown .dropdown-icon {
   position: absolute;
