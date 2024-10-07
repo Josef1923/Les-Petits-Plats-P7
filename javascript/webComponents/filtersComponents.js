@@ -1,4 +1,4 @@
-class FilterComponent extends HTMLElement {
+class FiltersComponents extends HTMLElement {
     constructor() {
         super();
 
@@ -95,4 +95,4 @@ class FilterComponent extends HTMLElement {
 }
 
 // Déclarer le Web Component
-customElements.define('filter-component', FilterComponent);
+customElements.define('filters-components', FiltersComponents);
