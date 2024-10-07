@@ -1,290 +1,255 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Manrope', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
 }
 
 header {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 }
-
-.header-box {
-    width: 100%;
-    height: 667px;
-    position: relative;
-    margin: 0 auto;
+header .header-box {
+  width: 100%;
+  height: 667px;
+  position: relative;
+  margin: 0 auto;
 }
-
-header img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
+header .header-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
-
-.logo {
-    width: 207px;
-    height: 25px;   
-    margin-left: 69px;
-    margin-top: 51px;
+header .header-box .logo {
+  width: 207px;
+  height: 25px;
+  margin-left: 69px;
+  margin-top: 51px;
 }
-
-.paragraph {
-    font-family: 'Anton', sans-serif;
-    color: #FFD15B;
-    z-index: 1;
-    font-size: 44px;
-    font-weight: 400;
-    text-align: center;
-    padding-top: 275px;
+header .header-box .paragraph {
+  font-family: "Anton", sans-serif;
+  color: #FFD15B;
+  z-index: 1;
+  font-size: 44px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 275px;
 }
-
-.search-bar {
-    display: flex;
-    justify-content: center;
+header .header-box .search-bar {
+  display: flex;
+  justify-content: center;
 }
-
-.submit-button {
-    position: relative;
-    width: 954px;
+header .header-box .search-bar .submit-button {
+  position: relative;
+  width: 954px;
 }
-
-.bar {
-    width: 100%;
-    height: 72px;
-    border: none;
-    font-size: 18px;
-    border-radius: 11px;
-    text-indent: 20px;
+header .header-box .search-bar .submit-button .bar {
+  width: 100%;
+  height: 72px;
+  border: none;
+  font-size: 18px;
+  border-radius: 11px;
+  text-indent: 20px;
 }
-
-.search-icon {
-    width: 51px;
-    height: 52px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
+header .header-box .search-bar .submit-button .search-icon {
+  width: 51px;
+  height: 52px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
-
-.search-icon:hover img {
-    content: url('assets/icons/magnifyingGlassHoover.svg');
+header .header-box .search-bar .submit-button .search-icon:hover img {
+  content: url("assets/icons/magnifyingGlassHoover.svg");
 }
 
 main {
-    width: 100%;
-    background-color: #E5E5E5;
-    margin: 0 auto;
-    
+  width: 100%;
+  background-color: #E5E5E5;
+  margin: 0 auto;
 }
-
-.filter-container {
-    display: flex;
-    padding-left: 104px;
-    padding-top: 21px;
-    padding-bottom: 55px;
-    gap: 30px;
-    flex-direction: row;
+main .filter-container {
+  display: flex;
+  padding-left: 104px;
+  padding-top: 21px;
+  padding-bottom: 55px;
+  gap: 30px;
+  flex-direction: row;
 }
-
-.filter-container button {
-    width: 195px;
-    height: 56px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #FFFF;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;    
-    align-items: center;
-    padding-left: 16px;
-    padding-right: 16px;
+main .filter-container button {
+  width: 195px;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
 }
-
-.filter-container button.active {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+main .filter-container button.active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
-
-.cards-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 48px;
-    padding: 0 100px;
-    padding-bottom: 100px;
+main .cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 0 100px;
+  padding-bottom: 100px;
 }
-
-.card {
-    width: calc(33.33% - 32px);
-    border-radius: 21px;
-    overflow: hidden;
-    border: none;
-    background-color: white;
-    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-    max-width: 380px;
-    height: auto;
+main .card {
+  width: calc(33.33% - 32px);
+  border-radius: 21px;
+  overflow: hidden;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+  max-width: 380px;
+  height: auto;
 }
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; 
-    padding-top: 25px;
-    padding-left: 32px;
+main .card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 25px;
+  padding-left: 32px;
 }
-
-.card-img-top {
-    max-height: 253px;
-    min-height: 253px;
-    object-fit: cover;
-    width: 100%;
+main .card .card-body .card-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27.1px;
+  font-family: Anton;
 }
-
-.recipe-titles {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16.39px;
-    letter-spacing: 0.09em;
-    color: rgba(122, 122, 122, 1);
+main .card .card-body .recipe-titles {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16.39px;
+  letter-spacing: 0.09em;
+  color: rgb(122, 122, 122);
 }
-
-.card-title {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 27.1px;
-    font-family: Anton;
+main .card .card-body .card-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.12px;
+  text-align: left;
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
-
-.card-text {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 19.12px;
-    text-align: left;
-    flex-grow: 1;
-    margin-bottom: 20px;
+main .card .card-body .ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
-.ingredients {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 10px;
+main .card .card-body .ingredients .ingredient {
+  width: 50%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19.12px;
+  color: rgb(27, 27, 27);
 }
-
-.ingredient {
-    width: 50%;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 19.12px;
-    color: rgba(27, 27, 27, 1);   
+main .card .card-body .ingredients .ingredient .quantity {
+  font-weight: 400;
+  color: rgb(122, 122, 122);
 }
-
-.quantity {
-    font-weight: 400;
-    color: rgba(122, 122, 122, 1);
+main .card .card-body .ingredient-title {
+  margin-top: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(122, 122, 122);
 }
-
-.ingredient-title {
-    margin-top: auto;
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(122, 122, 122, 1);
+main .card .card-img-top {
+  max-height: 253px;
+  min-height: 253px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
-
-.recipe-time {
-    position: absolute;
-    top: 21px;
-    right: 18px;
-    background-color:  rgba(255, 209, 91, 1);
-    padding: 5px 15px;
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(27, 27, 27, 1);
-    
+main .card .recipe-time {
+  position: absolute;
+  top: 21px;
+  right: 18px;
+  background-color: rgb(255, 209, 91);
+  padding: 5px 15px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(27, 27, 27);
 }
-
-/* Style pour le dropdown */
-.dropdown {
-    width: 195px;
-    padding-top: 10px;
-    background-color: rgba(255, 255, 255, 1);
-    margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    position: absolute;
-    top: 55px;
-    z-index: 1;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+main .filter-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
-
-.dropdown .svg-input {
-    width: 163px;
-    height: 36px;
-    margin-left: 16px;
-    margin-top: -16px;
-    border: 1px solid rgba(198, 198, 198, 1);
-    border-radius: 2px;
-    font-size: 16px;
-    background-color: white;
-    box-sizing: border-box;
+main .filter-item .dropdown {
+  width: 195px;
+  padding-top: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 55px;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.dropdown-icon {
-    position: absolute;
-    right: 25px;
-    top: 5px;
-    width: 13.5px;
-    height: 14px;
-    z-index: 2;
+main .filter-item .dropdown .svg-input {
+  width: 163px;
+  height: 36px;
+  margin-left: 16px;
+  margin-top: -16px;
+  border: 1px solid rgb(198, 198, 198);
+  border-radius: 2px;
+  font-size: 16px;
+  background-color: white;
+  box-sizing: border-box;
 }
-
-.hidden {
-    display: none;
+main .filter-item .dropdown .dropdown-icon {
+  position: absolute;
+  right: 25px;
+  top: 5px;
+  width: 13.5px;
+  height: 14px;
+  z-index: 2;
 }
-
-.dropdown ul {
-    list-style-type: none;      
-    max-height: 315px;
-    overflow: auto; 
-    box-sizing: border-box;
-    padding: 0; 
+main .filter-item .dropdown ul {
+  list-style-type: none;
+  max-height: 315px;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0;
 }
-
-.dropdown ul::-webkit-scrollbar {
-    width: 4px;
+main .filter-item .dropdown ul li {
+  padding: 5px 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding-left: 16px;
 }
-
-.dropdown ul::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
+main .filter-item .dropdown ul li:hover {
+  background-color: rgb(255, 209, 91);
 }
-
-.dropdown ul li {
-    padding: 5px 0;
-    cursor: pointer;
-    box-sizing: border-box;
-    padding-left: 16px;
+main .filter-item .dropdown ul::-webkit-scrollbar {
+  width: 4px;
 }
-
-.filter-item {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+main .filter-item .dropdown ul::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
 }
-
-.dropdown ul li:hover {
-    background-color: rgba(255, 209, 91, 1);
-}
+main .filter-item .hidden {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
