@@ -50,7 +50,7 @@ class FiltersComponents extends HTMLElement {
         if (dropdown.classList.contains('active')) {
             dropdown.classList.remove('active');
             dropdown.classList.add('hidden');
-            icon.style.transform = 'rotate(odeg)';
+            icon.style.transform = 'rotate(0deg)';
             button.classList.remove('active');
             return
         }
