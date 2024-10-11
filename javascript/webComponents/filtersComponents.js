@@ -47,17 +47,30 @@ class FiltersComponents extends HTMLElement {
     // Méthode pour basculer l'affichage du dropdown
     toggleDropdown(dropdown, icon, button) {
 
-        dropdown.classList.toggle('hidden');
-        dropdown.classList.toggle('active');
-
         if (dropdown.classList.contains('active')) {
-            icon.style.transform = 'rotate(180deg)';
-            button.classList.add('active');
-        } else {
-            icon.style.transform = 'rotate(0deg)';
+            dropdown.classList.remove('active');
+            dropdown.classList.add('hidden');
+            icon.style.transform = 'rotate(odeg)';
             button.classList.remove('active');
+            return
         }
+
+        //Fermeture dropdown ouvert précédent
+        this.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
+            const icon = activeDropdown.previousElementSibling.querySelector('img');
+            activeDropdown.classList.remove('active');
+            activeDropdown.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+            activeDropdown.previousElementSibling.classList.remove('active');
+        });
+
+        dropdown.classList.remove('hidden');
+        dropdown.classList.add('active');
+        icon.style.transform = 'rotate(180deg)';
+        button.classList.add('active');
+
     }
+
 
 
     //Extraction ingrédients
