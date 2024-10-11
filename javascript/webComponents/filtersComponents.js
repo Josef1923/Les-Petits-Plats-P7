@@ -62,39 +62,26 @@ class FiltersComponents extends HTMLElement {
 
     //Extraction ingrédients
     getAllIngredients() {
-        const ingredientsSet = new Set();
 
-        recipes.forEach(recipe => {
-            recipe.ingredients.forEach(ingredientObj => {
-                ingredientsSet.add(ingredientObj.ingredient);
-            });
-        });
-
-        return Array.from(ingredientsSet).sort();
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
+        ).sort();
     }
 
     // Extraction appareils
     getAllAppliances() {
-        const appliancesSet = new Set();
 
-        recipes.forEach(recipe => {
-            appliancesSet.add(recipe.appliance);
-        });
-
-        return Array.from(appliancesSet).sort();
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.appliance))
+        ).sort();
     }
 
     // Extraction ustensiles
     getAllUstensils() {
-        const ustensilsSet = new Set();
 
-        recipes.forEach(recipe => {
-            recipe.ustensils.forEach(ustensil => {
-                ustensilsSet.add(ustensil);
-            });
-        });
-
-        return Array.from(ustensilsSet).sort();
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ustensils))
+        ).sort();
     }
 }
 
