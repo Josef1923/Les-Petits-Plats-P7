@@ -44,19 +44,17 @@ class FiltersComponents extends HTMLElement {
         `;
     }
 
-    // Basculer l'affichage du dropdown et changer l'icône
     // Méthode pour basculer l'affichage du dropdown
     toggleDropdown(dropdown, icon, button) {
 
-        dropdown.classList.toggle('hidden'); // Basculer la classe hidden
-        dropdown.classList.toggle('active'); // Basculer la classe active
+        dropdown.classList.toggle('hidden');
+        dropdown.classList.toggle('active');
 
         if (dropdown.classList.contains('active')) {
-            icon.src = 'assets/icons/vector2.svg'; // Modifier l'icône
-            button.classList.add('active');        // Ajouter la classe active au bouton
-        } else {
-            icon.src = 'assets/icons/vector1.svg'; // Remettre l'icône initiale
-            button.classList.remove('active');     // Retirer la classe active du bouton
+            icon.src = 'assets/icons/vector2.svg';
+            button.classList.add('active');
+            icon.src = 'assets/icons/vector1.svg';
+            button.classList.remove('active');
         }
     }
 

@@ -83,24 +83,6 @@ main .filter-container {
   gap: 30px;
   flex-direction: row;
 }
-main .filter-container button {
-  width: 195px;
-  height: 56px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: white;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-main .filter-container button.active {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
 main .cards-container {
   display: flex;
   justify-content: space-between;
@@ -193,15 +175,21 @@ main .filter-item {
   position: relative;
 }
 main .filter-item .filter-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
+  width: 195px;
+  height: 56px;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   cursor: pointer;
-  border-radius: 5px;
+  background-color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
   text-align: left;
 }
 main .filter-item .filter-button img {
@@ -216,22 +204,25 @@ main .filter-item .dropdown {
   position: absolute;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   z-index: 10;
   overflow: hidden;
-  height: 370px;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   transition: height 0.3s ease, transform 0.3s ease;
 }
 main .filter-item .dropdown.active {
+  height: 370px;
+}
+main .filter-item .dropdown.hidden {
   height: 0;
-  transform: translateY(0);
 }
 main .filter-item .dropdown .svg-input {
   width: 163px;
   border: 1px solid #ccc;
   margin-left: 10px;
-  margin-right: -50px;
   height: 36px;
 }
 main .filter-item .dropdown .dropdown-icon {
