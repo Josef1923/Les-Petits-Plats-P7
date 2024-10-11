@@ -247,13 +247,13 @@ main {
       .svg-input {
         width: 163px;
         border: 1px solid #ccc;
-        margin-left: 10px;
+        margin-left: 16px;
         height: 36px;
       }
 
       .dropdown-icon {
         position: absolute;
-        right: 20px;
+        right: 25px;
         top: 10px;
         width: 14px;
       }
@@ -281,7 +281,13 @@ main {
         &::-webkit-scrollbar-thumb {
           background-color: #ccc;
           border-radius: 10px;
-        }
+        }   
+        
+        @-moz-document url-prefix() {
+          & {
+              scrollbar-width: thin;
+          }
+      }
       }
     }
   }

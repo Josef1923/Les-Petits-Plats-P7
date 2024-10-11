@@ -51,9 +51,10 @@ class FiltersComponents extends HTMLElement {
         dropdown.classList.toggle('active');
 
         if (dropdown.classList.contains('active')) {
-            icon.src = 'assets/icons/vector2.svg';
+            icon.style.transform = 'rotate(180deg)';
             button.classList.add('active');
-            icon.src = 'assets/icons/vector1.svg';
+        } else {
+            icon.style.transform = 'rotate(0deg)';
             button.classList.remove('active');
         }
     }

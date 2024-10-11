@@ -222,12 +222,12 @@ main .filter-item .dropdown.hidden {
 main .filter-item .dropdown .svg-input {
   width: 163px;
   border: 1px solid #ccc;
-  margin-left: 10px;
+  margin-left: 16px;
   height: 36px;
 }
 main .filter-item .dropdown .dropdown-icon {
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 10px;
   width: 14px;
 }
@@ -251,4 +251,9 @@ main .filter-item .dropdown ul::-webkit-scrollbar {
 main .filter-item .dropdown ul::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 10px;
+}
+@-moz-document url-prefix() {
+  main .filter-item .dropdown ul {
+    scrollbar-width: thin;
+  }
 }/*# sourceMappingURL=style.css.map */
