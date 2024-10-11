@@ -225,6 +225,9 @@ main .filter-item .dropdown .svg-input {
   margin-left: 16px;
   height: 36px;
 }
+main .filter-item .dropdown .svg-input.hidden {
+  opacity: 0;
+}
 main .filter-item .dropdown .dropdown-icon {
   position: absolute;
   right: 25px;
