@@ -382,7 +382,8 @@ main {
     margin-top: -20px;
     margin-bottom: 40px;
     display: flex;
-    gap: 50px;
+    gap: 20px;
+    flex-wrap: wrap;
 
     li {
       background: rgba(255, 209, 91, 1);
@@ -393,7 +394,11 @@ main {
       list-style: none;
       display:flex;
       align-items: center;
-      color: rgba(0, 0, 0, 1);      
+      color: rgba(0, 0, 0, 1); 
+      
+      .close-vector {
+        cursor: pointer;
+      }
     }
   }
 }

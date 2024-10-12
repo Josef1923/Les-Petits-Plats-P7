@@ -362,7 +362,8 @@ main .filtered-container {
   margin-top: -20px;
   margin-bottom: 40px;
   display: flex;
-  gap: 50px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 main .filtered-container li {
   background: rgb(255, 209, 91);
@@ -374,4 +375,7 @@ main .filtered-container li {
   display: flex;
   align-items: center;
   color: rgb(0, 0, 0);
+}
+main .filtered-container li .close-vector {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
