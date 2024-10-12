@@ -72,7 +72,6 @@ class FiltersComponents extends HTMLElement {
     }
 
 
-
     //Extraction ingrédients
     getAllIngredients() {
 

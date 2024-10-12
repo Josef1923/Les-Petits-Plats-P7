@@ -58,7 +58,7 @@ header {
       .submit-button {
         position: relative;
         width: 100%;
-        width: 954px;        
+        width: 954px;
 
         .bar {
           width: 100%;
@@ -284,7 +284,7 @@ main {
       }
     }
 
-    .dropdown {      
+    .dropdown {
       width: 100%;
       position: absolute;
       background-color: white;
@@ -324,7 +324,7 @@ main {
         @media (max-width: 480px) {
           width: 90px;
           height: 30px;
-        } 
+        }
       }
 
       .dropdown-icon {
@@ -351,11 +351,11 @@ main {
           }
 
           @media (max-width: 768px) {
-            font-size: 14px; 
+            font-size: 14px;
           }
-        
+
           @media (max-width: 480px) {
-            font-size: 12px; 
+            font-size: 12px;
           }
         }
 
@@ -366,14 +366,34 @@ main {
         &::-webkit-scrollbar-thumb {
           background-color: #ccc;
           border-radius: 10px;
-        }   
-        
+        }
+
         @-moz-document url-prefix() {
           & {
-              scrollbar-width: thin;
+            scrollbar-width: thin;
           }
+        }
       }
-      }
+    }
+  }
+
+  .filtered-container {
+    padding-left: 104px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 50px;
+
+    li {
+      background: rgba(255, 209, 91, 1);
+      height: 53px;
+      padding: 17px 18px 17px 18px;
+      gap: 60px;
+      border-radius: 10px;
+      list-style: none;
+      display:flex;
+      align-items: center;
+      color: rgba(0, 0, 0, 1);      
     }
   }
 }

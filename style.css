@@ -356,4 +356,22 @@ main .filter-item .dropdown ul::-webkit-scrollbar-thumb {
   main .filter-item .dropdown ul {
     scrollbar-width: thin;
   }
+}
+main .filtered-container {
+  padding-left: 104px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 50px;
+}
+main .filtered-container li {
+  background: rgb(255, 209, 91);
+  height: 53px;
+  padding: 17px 18px 17px 18px;
+  gap: 60px;
+  border-radius: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
 }/*# sourceMappingURL=style.css.map */
