@@ -5,15 +5,11 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (event) => {
             const filter = event.target.textContent;
 
-            if (!isFilterAlreadySelected(filter)) {
+            if (!filteredContainer.querySelector(`li[data-filter="${filter}"]`)) {
                 addFilterToContainer(filter);
             }
         });
     });
-
-    function isFilterAlreadySelected(filter) {
-        return !!filteredContainer.querySelector(`li[data-filter="${filter}"]`);
-    }
 
     function addFilterToContainer(filter) {
         const li = document.createElement('li');
