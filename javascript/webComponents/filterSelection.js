@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const filterType = event.target.closest('.filter-item').querySelector('.filter-button').textContent.trim();
 
             if (!filteredContainer.querySelector(`li[data-filter="${tag}"]`)) {
-                addFilter(tag, filterType);
+                addFilter(tag, filterType, item);
                 updateTags(tag, filterType, 'add');
                 filterCards();
             }
@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ajout tag au conteneur des filtres sélectionnés
-    function addFilter(tag, filterType) {
+    function addFilter(tag, filterType, filterItem) {
         const li = document.createElement('li');
         li.setAttribute('data-filter', tag);
         li.innerHTML = `
@@ -31,9 +31,12 @@ window.addEventListener('DOMContentLoaded', () => {
         <img src="assets/icons/closeVector.svg" class="close-vector" alt="Supprimer le filtre">
     `;
 
+        filterItem.style.display = 'none';
+
         li.querySelector('.close-vector').addEventListener('click', () => {
             li.remove();
             updateTags(tag, filterType, 'remove');
+            filterItem.style.display = '';
             filterCards();
         });
 
