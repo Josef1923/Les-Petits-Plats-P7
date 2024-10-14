@@ -10,23 +10,16 @@ inputs.forEach((input, index) => {
     input.addEventListener('input', function () {
         const inputEntry = input.value.toLowerCase();
 
-        // Ne filtrer que si 3 caractères ou plus ont été tapés
-        if (inputEntry.length >= 3) {
-            listItems.forEach(item => {
-                const text = item.textContent.toLowerCase();
+        // Filtrer dès le premier caractère
+        listItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
 
-                // Afficher les éléments qui correspondent au filtre
-                if (text.includes(inputEntry)) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        } else {
-            // Si moins de 3 caractères, afficher tous les éléments
-            listItems.forEach(item => {
+            // Afficher les éléments qui correspondent au filtre
+            if (text.includes(inputEntry)) {
                 item.style.display = '';
-            });
-        }
+            } else {
+                item.style.display = 'none';
+            }
+        });
     });
 });
