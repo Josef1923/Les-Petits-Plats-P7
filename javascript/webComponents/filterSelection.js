@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ${tag}
         <img src="assets/icons/closeVector.svg" class="close-vector" alt="Supprimer le filtre">
     `;
-
+        //ajout pour masquer élément seletionné dans la liste.
         filterItem.style.display = 'none';
 
         li.querySelector('.close-vector').addEventListener('click', () => {

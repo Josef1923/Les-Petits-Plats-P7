@@ -328,8 +328,9 @@ main .filter-item .dropdown ul {
   overflow-y: auto;
 }
 main .filter-item .dropdown ul li {
-  padding-top: 15px;
   padding-left: 16px;
+  padding-bottom: 6px;
+  padding-top: 6px;
   cursor: pointer;
 }
 main .filter-item .dropdown ul li:hover {
