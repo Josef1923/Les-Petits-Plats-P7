@@ -2,18 +2,21 @@ class FiltersComponents extends HTMLElement {
     constructor() {
         super();
 
-        // Extraire ingrédients, appareils et ustensiles des recettes
-        const ingredients = this.getAllIngredients();
-        const appliances = this.getAllAppliances();
-        const ustensils = this.getAllUstensils();
+        // Créer le conteneur des filtres
+        this.innerHTML = `<div class="filter-container"></div>`;
+    }
+
+    // Maj des filtres selon les recettes visibles
+    updateFilters(recipes) {
+        const ingredients = this.getIngredientsFromRecipes(recipes);
+        const appliances = this.getAppliancesFromRecipes(recipes);
+        const ustensils = this.getUstensilsFromRecipes(recipes);
 
         // Créer le conteneur des filtres
-        this.innerHTML = `
-            <div class="filter-container">
-                ${this.createFilterItemHTML('Ingrédients', ingredients)}
-                ${this.createFilterItemHTML('Appareils', appliances)}
-                ${this.createFilterItemHTML('Ustensiles', ustensils)}
-            </div>
+        this.querySelector('.filter-container').innerHTML = `
+            ${this.createFilterItemHTML('Ingrédients', ingredients)}
+            ${this.createFilterItemHTML('Appareils', appliances)}
+            ${this.createFilterItemHTML('Ustensiles', ustensils)}
         `;
 
         // Interaction avec les dropdowns
@@ -44,6 +47,27 @@ class FiltersComponents extends HTMLElement {
         `;
     }
 
+    // Extraction des ingrédients depuis les recettes visibles
+    getIngredientsFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
+        ).sort();
+    }
+
+    // Extraction des appareils depuis les recettes visibles
+    getAppliancesFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.map(recipe => recipe.appliance))
+        ).sort();
+    }
+
+    // Extraction des ustensiles depuis les recettes visibles
+    getUstensilsFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ustensils))
+        ).sort();
+    }
+
     // Méthode pour basculer l'affichage du dropdown
     toggleDropdown(dropdown, icon, button) {
 
@@ -52,7 +76,7 @@ class FiltersComponents extends HTMLElement {
             dropdown.classList.add('hidden');
             icon.style.transform = 'rotate(0deg)';
             button.classList.remove('active');
-            return
+            return;
         }
 
         //Fermeture dropdown ouvert précédent
@@ -68,32 +92,6 @@ class FiltersComponents extends HTMLElement {
         dropdown.classList.add('active');
         icon.style.transform = 'rotate(180deg)';
         button.classList.add('active');
-
-    }
-
-
-    //Extraction ingrédients
-    getAllIngredients() {
-
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
-        ).sort();
-    }
-
-    // Extraction appareils
-    getAllAppliances() {
-
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.appliance))
-        ).sort();
-    }
-
-    // Extraction ustensiles
-    getAllUstensils() {
-
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ustensils))
-        ).sort();
     }
 }
 

@@ -1,6 +1,3 @@
-// Fichier: javascript/webComponents/cardComponent.js
-
-// cLASSE DE CARD
 class Card {
     constructor(recipe) {
         this.id = recipe.id;
@@ -13,7 +10,7 @@ class Card {
 
     // Génére le HTML
     generateCard() {
-        // Générer la liste des ingrédients 
+        // Générer la liste des ingrédients avec quantité
         const ingredientsHTML = this.ingredients.map(ingredient => `
             <div class="ingredient">
                 ${ingredient.ingredient} 
@@ -21,7 +18,7 @@ class Card {
             </div>
         `).join('');
 
-        // Retourne le HTML de la carte
+        //HTML de la card
         return `
     <div class="card">
         <div class="recipe-time">
@@ -42,18 +39,21 @@ class Card {
     }
 }
 
-// Fonction pour insérer toutes les cartes dans le conteneur
+// Fonction pour insérer toutes les cards dans le conteneur
 function generateCards(recipes) {
     const cardsContainer = document.querySelector(".cards-container");
 
     cardsContainer.innerHTML = "";
 
-    // Boucle sur toutes les recettes et générer une carte pour chaque recette
+    //Genre une card/recette
     recipes.forEach(recipe => {
         const card = new Card(recipe);
         cardsContainer.innerHTML += card.generateCard();
     });
+
+    // Maj filtres en fonction des recettes affichées
+    const filtersComponent = document.querySelector('filters-components');
+    filtersComponent.updateFilters(recipes);
 }
 
-// Appeler la fonction pour générer les cartes avec les recettes de recipes.js
 generateCards(recipes);
