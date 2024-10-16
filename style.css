@@ -289,9 +289,12 @@ main .filter-item .dropdown {
 }
 main .filter-item .dropdown.active {
   height: 370px;
+  transition: height 0.3s ease;
 }
 main .filter-item .dropdown.hidden {
   height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
 }
 main .filter-item .dropdown .svg-input {
   width: 163px;
