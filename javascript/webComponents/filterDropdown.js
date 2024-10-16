@@ -37,7 +37,7 @@ class FiltersComponents extends HTMLElement {
                     ${filterType} <img src="assets/icons/vector1.svg" alt="Icone">
                 </button>
                 <div class="dropdown hidden">
-                    <input type="text" class="svg-input" placeholder="">
+                    <input type="text" class="svg-input" placeholder=""  tabindex="0">
                     <img src="assets/icons/magnifyingGlassFilter.svg" class="dropdown-icon" alt="Recherche">
                     <ul>
                         ${options.map(option => `<li>${option}</li>`).join('')}
@@ -69,28 +69,24 @@ class FiltersComponents extends HTMLElement {
     }
 
     // Méthode pour basculer l'affichage du dropdown
-    toggleDropdown(dropdown, icon, button) {
+    toggleDropdown(dropdown, button) {
 
         if (dropdown.classList.contains('active')) {
             dropdown.classList.remove('active');
             dropdown.classList.add('hidden');
-            icon.style.transform = 'rotate(0deg)';
             button.classList.remove('active');
             return;
         }
 
         //Fermeture dropdown ouvert précédent
         this.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
-            const icon = activeDropdown.previousElementSibling.querySelector('img');
             activeDropdown.classList.remove('active');
             activeDropdown.classList.add('hidden');
-            icon.style.transform = 'rotate(0deg)';
             activeDropdown.previousElementSibling.classList.remove('active');
         });
 
         dropdown.classList.remove('hidden');
         dropdown.classList.add('active');
-        icon.style.transform = 'rotate(180deg)';
         button.classList.add('active');
     }
 }

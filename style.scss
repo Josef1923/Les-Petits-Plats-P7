@@ -300,10 +300,15 @@ main {
 
       &.active {
         height: 370px;
+
+        transition: height 0.3s ease;
       }
 
       &.hidden {
         height: 0;
+
+        overflow: hidden;
+        transition: height 0.3s ease;
       }
 
       .svg-input {
