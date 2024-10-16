@@ -125,7 +125,7 @@ main {
   }
 
   .cards-container {
-    display: flex;    
+    display: flex;
     flex-wrap: wrap;
     gap: 48px;
     padding: 0 100px;
@@ -298,15 +298,16 @@ main {
       transform: translateY(-5px);
       transition: height 0.3s ease, transform 0.3s ease;
 
-      &.active {
-        height: 370px;
 
+
+      &.active {
+        max-height: 370px;
         transition: height 0.3s ease;
+        padding-bottom: 5px;
       }
 
       &.hidden {
         height: 0;
-
         overflow: hidden;
         transition: height 0.3s ease;
       }
@@ -349,7 +350,7 @@ main {
         li {
           padding-left: 16px;
           padding-bottom: 6px;
-          padding-top: 6px;        
+          padding-top: 6px;
           cursor: pointer;
 
           &:hover {
@@ -398,10 +399,10 @@ main {
       gap: 60px;
       border-radius: 10px;
       list-style: none;
-      display:flex;
+      display: flex;
       align-items: center;
-      color: rgba(0, 0, 0, 1); 
-      
+      color: rgba(0, 0, 0, 1);
+
       .close-vector {
         cursor: pointer;
       }

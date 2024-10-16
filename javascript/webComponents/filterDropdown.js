@@ -23,8 +23,7 @@ class FiltersComponents extends HTMLElement {
         this.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', () => {
                 const dropdown = button.nextElementSibling;
-                const icon = button.querySelector('img');
-                this.toggleDropdown(dropdown, icon, button);
+                this.toggleDropdown(dropdown, button);
             });
         });
     }
@@ -71,14 +70,7 @@ class FiltersComponents extends HTMLElement {
     // Méthode pour basculer l'affichage du dropdown
     toggleDropdown(dropdown, button) {
 
-        if (dropdown.classList.contains('active')) {
-            dropdown.classList.remove('active');
-            dropdown.classList.add('hidden');
-            button.classList.remove('active');
-            return;
-        }
-
-        //Fermeture dropdown ouvert précédent
+        // Fermer tous les autres dropdowns ouverts
         this.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
             activeDropdown.classList.remove('active');
             activeDropdown.classList.add('hidden');
@@ -88,6 +80,11 @@ class FiltersComponents extends HTMLElement {
         dropdown.classList.remove('hidden');
         dropdown.classList.add('active');
         button.classList.add('active');
+
+        const input = dropdown.querySelector('input');
+        if (input) {
+            input.focus();
+        }
     }
 }
 
