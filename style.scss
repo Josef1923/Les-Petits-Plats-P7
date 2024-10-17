@@ -266,7 +266,7 @@ main {
         width: 15px;
         transition: transform 0.3s ease;
       }
-      
+
       &.active img {
         transform: rotate(180deg);
       }
@@ -298,18 +298,13 @@ main {
       transform: translateY(-5px);
       transition: max-height 0.4s ease;
 
-
-
       &.active {
-        max-height: 370px;
+        max-height: 370px;        
         
-        padding-bottom: 5px;
       }
 
       &.hidden {
-        max-height: 0;
-        padding-bottom: 0;
-        
+       max-height: 0;            
       }
 
       .svg-input {
@@ -346,6 +341,7 @@ main {
         margin: 0;
         max-height: 370px;
         overflow-y: auto;
+        min-height: 10px;
 
         li {
           padding-left: 16px;

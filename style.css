@@ -289,11 +289,9 @@ main .filter-item .dropdown {
 }
 main .filter-item .dropdown.active {
   max-height: 370px;
-  padding-bottom: 5px;
 }
 main .filter-item .dropdown.hidden {
   max-height: 0;
-  padding-bottom: 0;
 }
 main .filter-item .dropdown .svg-input {
   width: 163px;
@@ -328,6 +326,7 @@ main .filter-item .dropdown ul {
   margin: 0;
   max-height: 370px;
   overflow-y: auto;
+  min-height: 10px;
 }
 main .filter-item .dropdown ul li {
   padding-left: 16px;
