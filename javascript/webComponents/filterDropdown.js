@@ -26,6 +26,28 @@ class FiltersComponents extends HTMLElement {
                 this.handleDropdown(dropdown, button);
             });
         });
+
+        const inputs = document.querySelectorAll('.svg-input');
+        const filterContainers = document.querySelectorAll('.filter-item');
+
+
+        inputs.forEach((input, index) => {
+            const listItems = filterContainers[index].querySelectorAll('ul li');
+
+            input.addEventListener('input', function () {
+                const inputEntry = input.value.toLowerCase();
+
+                listItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+
+                    if (text.includes(inputEntry)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
     }
 
     // Générer le HTML filtre avec liste
@@ -78,9 +100,8 @@ class FiltersComponents extends HTMLElement {
             activeDropdown.previousElementSibling.classList.remove('active');
         });
 
-        // Si le dropdown cliqué est déjà ouvert, on le ferme (déjà fait avec la boucle ci-dessus)
+        // Ouvrir le dropdown
         if (!isActive) {
-            // Ouvrir le dropdown
             dropdown.classList.remove('hidden');
             dropdown.classList.add('active');
             button.classList.add('active');
