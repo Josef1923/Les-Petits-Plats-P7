@@ -23,7 +23,7 @@ class FiltersComponents extends HTMLElement {
         this.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', () => {
                 const dropdown = button.nextElementSibling;
-                this.toggleDropdown(dropdown, button);
+                this.handleDropdown(dropdown, button);
             });
         });
     }
@@ -67,23 +67,39 @@ class FiltersComponents extends HTMLElement {
         ).sort();
     }
 
-    // Méthode pour basculer l'affichage du dropdown
-    toggleDropdown(dropdown, button) {
+    // Bascule affichage du dropdown
+    handleDropdown(dropdown, button) {
+
+        const isActive = dropdown.classList.contains('active');
 
         // Fermer tous les autres dropdowns ouverts
         this.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
-            activeDropdown.classList.remove('active');
-            activeDropdown.classList.add('hidden');
-            activeDropdown.previousElementSibling.classList.remove('active');
+            if (activeDropdown !== dropdown) {
+                activeDropdown.classList.remove('active');
+                activeDropdown.classList.add('hidden');
+                activeDropdown.previousElementSibling.classList.remove('active');
+            }
         });
 
-        dropdown.classList.remove('hidden');
-        dropdown.classList.add('active');
-        button.classList.add('active');
+        // Si le dropdown cliqué est déjà ouvert, on le ferme
+        if (isActive) {
+            dropdown.classList.remove('active');
+            dropdown.classList.add('hidden');
+            button.classList.remove('active');
+        } else {
+            // Sinon, on ouvre le dropdown
+            dropdown.classList.remove('hidden');
+            dropdown.classList.add('active');
+            button.classList.add('active');
 
-        const input = dropdown.querySelector('input');
-        if (input) {
-            input.focus();
+            // Focus sur l'input à l'intérieur du dropdown après l'ouverture sinon ca modifie le css
+            const input = dropdown.querySelector('input');
+            if (input) {
+                dropdown.addEventListener('transitionend', function handler() {
+                    input.focus();
+                    dropdown.removeEventListener('transitionend', handler);
+                })
+            }
         }
     }
 }

@@ -285,17 +285,15 @@ main .filter-item .dropdown {
   z-index: 10;
   overflow: hidden;
   transform: translateY(-5px);
-  transition: height 0.3s ease, transform 0.3s ease;
+  transition: max-height 0.4s ease;
 }
 main .filter-item .dropdown.active {
   max-height: 370px;
-  transition: height 0.3s ease;
   padding-bottom: 5px;
 }
 main .filter-item .dropdown.hidden {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.3s ease;
+  max-height: 0;
+  padding-bottom: 0;
 }
 main .filter-item .dropdown .svg-input {
   width: 163px;

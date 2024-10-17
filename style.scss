@@ -266,7 +266,7 @@ main {
         width: 15px;
         transition: transform 0.3s ease;
       }
-
+      
       &.active img {
         transform: rotate(180deg);
       }
@@ -296,20 +296,20 @@ main {
       z-index: 10;
       overflow: hidden;
       transform: translateY(-5px);
-      transition: height 0.3s ease, transform 0.3s ease;
+      transition: max-height 0.4s ease;
 
 
 
       &.active {
         max-height: 370px;
-        transition: height 0.3s ease;
+        
         padding-bottom: 5px;
       }
 
       &.hidden {
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease;
+        max-height: 0;
+        padding-bottom: 0;
+        
       }
 
       .svg-input {
