@@ -69,36 +69,29 @@ class FiltersComponents extends HTMLElement {
 
     // Bascule affichage du dropdown
     handleDropdown(dropdown, button) {
-
         const isActive = dropdown.classList.contains('active');
 
-        // Fermer tous les autres dropdowns ouverts
-        this.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
-            if (activeDropdown !== dropdown) {
-                activeDropdown.classList.remove('active');
-                activeDropdown.classList.add('hidden');
-                activeDropdown.previousElementSibling.classList.remove('active');
-            }
+        // Fermer tous les dropdowns ouverts
+        document.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
+            activeDropdown.classList.remove('active');
+            activeDropdown.classList.add('hidden');
+            activeDropdown.previousElementSibling.classList.remove('active');
         });
 
-        // Si le dropdown cliqué est déjà ouvert, on le ferme
-        if (isActive) {
-            dropdown.classList.remove('active');
-            dropdown.classList.add('hidden');
-            button.classList.remove('active');
-        } else {
-            // Sinon, on ouvre le dropdown
+        // Si le dropdown cliqué est déjà ouvert, on le ferme (déjà fait avec la boucle ci-dessus)
+        if (!isActive) {
+            // Ouvrir le dropdown
             dropdown.classList.remove('hidden');
             dropdown.classList.add('active');
             button.classList.add('active');
 
-            // Focus sur l'input à l'intérieur du dropdown après l'ouverture sinon ca modifie le css
+            // Focus sur l'input si présent
             const input = dropdown.querySelector('input');
             if (input) {
                 dropdown.addEventListener('transitionend', function handler() {
                     input.focus();
                     dropdown.removeEventListener('transitionend', handler);
-                })
+                });
             }
         }
     }
