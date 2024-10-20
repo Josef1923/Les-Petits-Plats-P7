@@ -1,7 +1,7 @@
 const selectedTags = {
     ingredients: [],
     appliances: [],
-    ustensils: []
+    ustensils: [],
 };
 
 window.addEventListener('DOMContentLoaded', () => {

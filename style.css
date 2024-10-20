@@ -325,7 +325,7 @@ main .filter-item .dropdown ul {
   padding: 0;
   margin: 0;
   max-height: 370px;
-  overflow-y: auto;
+  overflow: auto;
   min-height: 10px;
 }
 main .filter-item .dropdown ul li {

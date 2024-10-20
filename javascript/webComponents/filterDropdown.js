@@ -78,7 +78,7 @@ class FiltersComponents extends HTMLElement {
     // Extraction des appareils depuis les recettes visibles
     getAppliancesFromRecipes(recipes) {
         return Array.from(
-            new Set(recipes.map(recipe => recipe.appliance))
+            new Set(recipes.flatMap(recipe => recipe.appliance))
         ).sort();
     }
 
