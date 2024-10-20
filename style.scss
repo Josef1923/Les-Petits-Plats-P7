@@ -300,7 +300,6 @@ main {
 
       &.active {
         max-height: 370px;        
-        
       }
 
       &.hidden {
@@ -341,6 +340,7 @@ main {
         margin: 0;
         max-height: 370px;        
         min-height: 10px;
+        overflow-y: auto;
 
         li {
           padding-left: 16px;
