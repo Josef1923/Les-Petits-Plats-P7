@@ -4,9 +4,11 @@ const selectedTags = {
     ustensils: [],
 };
 
+let filteredBySearch = recipes; // resultats recherche principale
+
 window.addEventListener('DOMContentLoaded', () => {
     const filteredContainer = document.querySelector('.filtered-container');
-    const cards = Array.from(document.querySelectorAll('.card'));
+    let cards
 
 
     // Event listener sur les élément de filtre
@@ -66,15 +68,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Filtre des cards selon les filtres sélectionnés
     function filterCards() {
-        cards.forEach(card => {
-            const recipeName = card.querySelector('.card-title').textContent;
-            const recipe = recipes.find(recipe => recipe.name === recipeName);
+        // Filtrer les recettes basées sur les résultats de la recherche principale
+        const filteredRecipes = filteredBySearch.filter(recipe => matchesFilters(recipe));
 
-            card.style.display = matchesFilters(recipe) ? '' : 'none';
-        });
+        // Régénérer les cartes uniquement pour les recettes filtrées
+        generateCards(filteredRecipes);
 
-        // Maj des filtres disponibles
-        const filteredRecipes = recipes.filter(recipe => matchesFilters(recipe));
+        // Récupérer les nouvelles cartes après la régénération
+        cards = Array.from(document.querySelectorAll('.card'));
+
+        // Mettre à jour les filtres disponibles après filtrage
         const filtersComponent = document.querySelector('filters-components');
         if (filtersComponent) {
             filtersComponent.updateFilters(filteredRecipes);

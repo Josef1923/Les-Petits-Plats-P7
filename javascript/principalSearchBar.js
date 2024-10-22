@@ -3,14 +3,19 @@ function threeCharactersListener() {
     const searchInput = document.querySelector('.search-bar input');
 
     searchInput.addEventListener('input', (event) => {
-        const query = event.target.value.trim();// Supprimer les espaces inutiles
+        const query = event.target.value.trim(); // Supprimer les espaces inutiles
 
         if (query.length >= 3) {
-            const results = searchRecipesWithLoopFor(query);
-            generateCards(results);
+            filteredBySearch = searchRecipesWithLoopFor(query);  // Mettre à jour avec les résultats de la recherche
         } else {
-            generateCards(recipes)
-        };
+            filteredBySearch = recipes;  // Si moins de 3 caractères, restaurer toutes les recettes
+        }
+
+        // Régénérer les cartes avec les résultats de la recherche principale
+        generateCards(filteredBySearch);
+
+        // Appliquer les filtres sur les résultats de la recherche principale
+        filterCards();
     });
 }
 
@@ -18,7 +23,7 @@ function threeCharactersListener() {
 function searchRecipesWithLoopFor(query) {
     let filteredRecipes = [];
 
-    // Boucler des les recettes
+    // Boucler sur les recettes
     for (let i = 0; i < recipes.length; i++) {
         let recipe = recipes[i];
 
