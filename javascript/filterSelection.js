@@ -4,12 +4,13 @@ const selectedTags = {
     ustensils: [],
 };
 
+let filteredBySearch = recipes; // Stocker les résultats de la recherche principale
+
 window.addEventListener('DOMContentLoaded', () => {
     const filteredContainer = document.querySelector('.filtered-container');
-    const cards = Array.from(document.querySelectorAll('.card'));
+    let cards;  // La variable sera initialisée après génération des cartes
 
-
-    // Event listener sur les élément de filtre
+    // Event listener sur les éléments de filtre (ajout de tag)
     document.addEventListener('click', (event) => {
         if (event.target.tagName === 'LI') {
             const tag = event.target.textContent.trim();
@@ -18,12 +19,12 @@ window.addEventListener('DOMContentLoaded', () => {
             if (!filteredContainer.querySelector(`li[data-filter="${tag}"]`)) {
                 addFilter(tag, filterType, event.target);
                 updateTags(tag, filterType, 'add');
-                filterCards();
+                filterCards(); // Appliquer les filtres après ajout d'un tag
             }
         }
     });
 
-    // Ajout tag dans le conteneur des filtres 
+    // Ajout d'un tag dans le conteneur des filtres
     function addFilter(tag, filterType, filterItem) {
         const li = document.createElement('li');
         li.setAttribute('data-filter', tag);
@@ -32,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
             <img src="assets/icons/closeVector.svg" class="close-vector" alt="Supprimer le filtre">
         `;
 
-        // Masquer <li> sélectionné dans la liste des filtres
+        // Masquer le <li> sélectionné dans la liste des filtres
         filterItem.style.display = 'none';
 
         // Suppression du tag
@@ -40,14 +41,20 @@ window.addEventListener('DOMContentLoaded', () => {
             li.remove();
             updateTags(tag, filterType, 'remove');
             filterItem.style.display = '';
-            filterCards();
+            filterCards();  // Appliquer le filtrage après suppression du tag
+
+            // Mise à jour des dropdowns après suppression d'un filtre
+            const filtersComponent = document.querySelector('filters-components');
+            if (filtersComponent) {
+                filtersComponent.updateFilters(filteredBySearch);  // Mise à jour des options de filtre
+            }
         });
 
-        // Ajouter filtre sélectionné au conteneur
+        // Ajouter le filtre sélectionné au conteneur
         filteredContainer.appendChild(li);
     }
 
-    // Maj des tags sélectionnés
+    // Mise à jour des tags sélectionnés
     function updateTags(tag, filterType, action) {
         const typeMap = {
             'Ingrédients': 'ingredients',
@@ -64,17 +71,18 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Filtre des cards selon les filtres sélectionnés
+    // Filtrage des cartes selon les filtres sélectionnés
     function filterCards() {
-        cards.forEach(card => {
-            const recipeName = card.querySelector('.card-title').textContent;
-            const recipe = recipes.find(recipe => recipe.name === recipeName);
+        // Filtrer les recettes basées sur les résultats de la recherche principale
+        const filteredRecipes = filteredBySearch.filter(recipe => matchesFilters(recipe));
 
-            card.style.display = matchesFilters(recipe) ? '' : 'none';
-        });
+        // Régénérer les cartes uniquement pour les recettes filtrées
+        generateCards(filteredRecipes);
 
-        // Maj des filtres disponibles
-        const filteredRecipes = recipes.filter(recipe => matchesFilters(recipe));
+        // Récupérer les nouvelles cartes après la régénération
+        cards = Array.from(document.querySelectorAll('.card'));
+
+        // Mettre à jour les filtres disponibles après filtrage
         const filtersComponent = document.querySelector('filters-components');
         if (filtersComponent) {
             filtersComponent.updateFilters(filteredRecipes);

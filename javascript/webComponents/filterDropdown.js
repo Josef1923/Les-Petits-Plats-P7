@@ -6,7 +6,7 @@ class FiltersComponents extends HTMLElement {
         this.innerHTML = `<div class="filter-container"></div>`;
     }
 
-    // Maj des filtres selon les recettes visibles
+    // Mise à jour des filtres selon les recettes visibles
     updateFilters(recipes) {
         const ingredients = this.getIngredientsFromRecipes(recipes);
         const appliances = this.getAppliancesFromRecipes(recipes);
@@ -35,7 +35,6 @@ class FiltersComponents extends HTMLElement {
         const inputs = document.querySelectorAll('.svg-input');
         const filterContainers = document.querySelectorAll('.filter-item');
 
-
         inputs.forEach((input, index) => {
             const listItems = filterContainers[index].querySelectorAll('ul li');
 
@@ -55,7 +54,7 @@ class FiltersComponents extends HTMLElement {
         });
     }
 
-    // Générer le HTML filtre avec liste
+    // Générer le HTML des filtres avec liste
     createFilterItemHTML(filterType, options) {
         return `
             <div class="filter-item">
@@ -73,28 +72,7 @@ class FiltersComponents extends HTMLElement {
         `;
     }
 
-    // Extraction des ingrédients depuis les recettes visibles
-    getIngredientsFromRecipes(recipes) {
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
-        ).sort();
-    }
-
-    // Extraction des appareils depuis les recettes visibles
-    getAppliancesFromRecipes(recipes) {
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.appliance))
-        ).sort();
-    }
-
-    // Extraction des ustensiles depuis les recettes visibles
-    getUstensilsFromRecipes(recipes) {
-        return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ustensils))
-        ).sort();
-    }
-
-    // Bascule affichage du dropdown
+    // Gestion de l'affichage du dropdown
     handleDropdown(dropdown, button) {
         const isActive = dropdown.classList.contains('active');
 
@@ -120,6 +98,27 @@ class FiltersComponents extends HTMLElement {
                 });
             }
         }
+    }
+
+    // Extraction des ingrédients depuis les recettes visibles
+    getIngredientsFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
+        ).sort();
+    }
+
+    // Extraction des appareils depuis les recettes visibles
+    getAppliancesFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.appliance))
+        ).sort();
+    }
+
+    // Extraction des ustensiles depuis les recettes visibles
+    getUstensilsFromRecipes(recipes) {
+        return Array.from(
+            new Set(recipes.flatMap(recipe => recipe.ustensils))
+        ).sort();
     }
 }
 

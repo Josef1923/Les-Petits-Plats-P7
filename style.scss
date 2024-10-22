@@ -311,7 +311,7 @@ main {
       transition: max-height 0.4s ease;
 
       &.active {
-        max-height: 370px;        
+        max-height: 375px;   
       }
 
       &.hidden {
@@ -350,14 +350,14 @@ main {
         list-style: none;
         padding: 0;
         margin: 0;
-        max-height: 370px;        
+        max-height: 375px;        
         min-height: 10px;
         overflow-y: auto;
 
         li {
           padding-left: 16px;
-          padding-bottom: 6px;
-          padding-top: 6px;
+          padding-bottom: 5px;
+          padding-top: 5px;
           cursor: pointer;
 
           &:hover {
