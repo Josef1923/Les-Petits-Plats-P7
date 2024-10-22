@@ -106,21 +106,33 @@ main {
 
   .filter-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
     padding-left: 104px;
+    padding-right: 50px;
     padding-top: 21px;
     padding-bottom: 55px;
-    gap: 30px;
-    flex-direction: row;
 
-    @media (max-width: 768px) {
-      padding-left: 50px;
-      padding-right: 50px;
+    .filters-dropdowns {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 480px) {
-      padding-left: 20px;
-      padding-right: 20px;
+    .recipe-counter {
+      font-family: Anton;
+      font-size: 21px;
+      align-self: center;
+      margin-right: 100px;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .recipe-counter {
+        align-self: flex-start;
+      }
     }
   }
 

@@ -14,10 +14,15 @@ class FiltersComponents extends HTMLElement {
 
         // Créer le conteneur des filtres
         this.querySelector('.filter-container').innerHTML = `
+        <div class="filters-dropdowns">
             ${this.createFilterItemHTML('Ingrédients', ingredients)}
             ${this.createFilterItemHTML('Appareils', appliances)}
             ${this.createFilterItemHTML('Ustensiles', ustensils)}
-        `;
+        </div>
+        <div class="recipe-counter">
+            ${recipes.length} recettes
+        </div>
+    `;
 
         // Interaction avec les dropdowns
         this.querySelectorAll('.filter-button').forEach(button => {
