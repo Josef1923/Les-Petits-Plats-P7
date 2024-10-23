@@ -45,7 +45,7 @@ class FiltersComponents extends HTMLElement {
                 listItems.forEach(item => {
                     const text = item.textContent.toLowerCase();
 
-                    if (text.startsWith(inputEntry)) {
+                    if (text.includes(inputEntry)) {
                         item.style.display = '';
                     } else {
                         item.style.display = 'none';
