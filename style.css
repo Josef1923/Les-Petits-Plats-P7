@@ -389,4 +389,12 @@ main .filtered-container li {
 }
 main .filtered-container li .close-vector {
   cursor: pointer;
+}
+
+.no-results-message {
+  font-size: 30px;
+  font-weight: 800;
+  color: black;
+  margin-top: 20px;
+  margin-left: 100px;
 }/*# sourceMappingURL=style.css.map */

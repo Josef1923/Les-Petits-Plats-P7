@@ -123,5 +123,6 @@ class FiltersComponents extends HTMLElement {
     }
 }
 
+
 // Déclarer le Web Component
 customElements.define('filters-components', FiltersComponents);
