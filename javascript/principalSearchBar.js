@@ -11,8 +11,13 @@ function threeCharactersListener() {
             filteredBySearch = recipes;  // Si moins de 3 caractères, restaurer toutes les recettes
         }
 
-        // Régénérer les cartes avec les résultats de la recherche principale
-        generateCards(filteredBySearch);
+        // Vérifier s'il y a des résultats
+        if (filteredBySearch.length === 0) {
+            displayNoResultsMessage(query); // Afficher un message si aucun résultat trouvé
+        } else {
+            // Régénérer les cartes avec les résultats de la recherche principale
+            generateCards(filteredBySearch);
+        }
 
         // Appliquer les filtres sur les résultats de la recherche principale
         filterCards();
@@ -28,6 +33,19 @@ function searchRecipesWithReturn(query) {
             ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
         )
     );
+}
+
+// Fonction pour afficher un message lorsqu'aucune recette n'est trouvée
+function displayNoResultsMessage(query) {
+    const cardsContainer = document.querySelector('.cards-container');
+    cardsContainer.innerHTML = '';  // Vider le conteneur
+
+    const message = `
+        <div class="no-results-message">
+            Aucune recette ne contient « ${query} ». Vous pouvez essayer « tarte aux pommes », « poisson », etc.
+        </div>
+    `;
+    cardsContainer.innerHTML = message;
 }
 
 // Lancement de l'écouteur lors du chargement de la page
