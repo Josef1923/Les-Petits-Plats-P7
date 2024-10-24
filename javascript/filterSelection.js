@@ -6,24 +6,23 @@ const selectedTags = {
 
 window.addEventListener('DOMContentLoaded', () => {
     const filteredContainer = document.querySelector('.filtered-container');
-    const cards = Array.from(document.querySelectorAll('.card'));
 
-
-    // Event listener sur les élément de filtre
+    // Event listener sur les éléments de filtre
     document.addEventListener('click', (event) => {
-        if (event.target.tagName === 'LI') {
-            const tag = event.target.textContent.trim();
-            const filterType = event.target.closest('.filter-item').querySelector('.filter-button').textContent.trim();
+        const target = event.target;
+        if (target.tagName === 'LI') {
+            const tag = target.textContent.trim();
+            const filterType = target.closest('.filter-item').querySelector('.filter-button').textContent.trim().toLowerCase();
 
             if (!filteredContainer.querySelector(`li[data-filter="${tag}"]`)) {
-                addFilter(tag, filterType, event.target);
+                addFilter(tag, filterType, target);
                 updateTags(tag, filterType, 'add');
                 filterCards();
             }
         }
     });
 
-    // Ajout tag dans le conteneur des filtres 
+    // Ajout du tag dans le conteneur des filtres
     function addFilter(tag, filterType, filterItem) {
         const li = document.createElement('li');
         li.setAttribute('data-filter', tag);
@@ -47,12 +46,12 @@ window.addEventListener('DOMContentLoaded', () => {
         filteredContainer.appendChild(li);
     }
 
-    // Maj des tags sélectionnés
+    // Mise à jour des tags sélectionnés
     function updateTags(tag, filterType, action) {
         const typeMap = {
-            'Ingrédients': 'ingredients',
-            'Appareils': 'appliances',
-            'Ustensiles': 'ustensils'
+            'ingrédients': 'ingredients',
+            'appareils': 'appliances',
+            'ustensiles': 'ustensils'
         };
 
         const list = selectedTags[typeMap[filterType]];
@@ -64,48 +63,43 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Filtre des cards selon les filtres sélectionnés
+    // Filtrage des cartes selon les filtres sélectionnés
     function filterCards() {
-        cards.forEach(card => {
-            const recipeName = card.querySelector('.card-title').textContent;
-            const recipe = recipes.find(recipe => recipe.name === recipeName);
+        if (!recipes || recipes.length === 0) {
+            console.error("Aucune recette disponible.");
+            return;
+        }
 
-            card.style.display = matchesFilters(recipe) ? '' : 'none';
-        });
-
-        // Maj des filtres disponibles
         const filteredRecipes = recipes.filter(recipe => matchesFilters(recipe));
+
+        // Générer les cartes seulement pour les recettes filtrées
+        generateCards(filteredRecipes);
+
+        // Mettre à jour les filtres disponibles après filtrage
         const filtersComponent = document.querySelector('filters-components');
         if (filtersComponent) {
             filtersComponent.updateFilters(filteredRecipes);
         }
-
-        // Masquer les filtres déjà sélectionnés 
-        hideSelectedFilters();
     }
 
-    // Vérifier si une recette correspond aux filtres sélectionnés
+    // Vérification si une recette correspond aux filtres sélectionnés
     function matchesFilters(recipe) {
-        const checks = {
-            ingredients: recipe.ingredients.map(ing => ing.ingredient),
-            appliances: [recipe.appliance],
-            ustensils: recipe.ustensils
-        };
+        const { ingredients, appliances, ustensils } = selectedTags;
 
-        // Vérifier si la recette correspond à tous les tags actifs
-        return ['ingredients', 'appliances', 'ustensils'].every(type =>
-            selectedTags[type].every(tag => checks[type].includes(tag))
-        );
+        // Vérifier les ingrédients
+        const recipeIngredients = recipe.ingredients.map(ing => ing.ingredient ? ing.ingredient.toLowerCase() : '');
+        const ingredientsMatch = ingredients.every(tag => recipeIngredients.includes(tag.toLowerCase()));
+
+        // Vérifier l'appareil (appliance)
+        const applianceMatch = appliances.length === 0 || appliances.some(tag => recipe.appliance.toLowerCase() === tag.toLowerCase());
+
+        // Vérifier les ustensiles
+        const recipeUstensils = recipe.ustensils.map(ustensil => ustensil ? ustensil.toLowerCase() : '');
+        const ustensilsMatch = ustensils.every(tag => recipeUstensils.includes(tag.toLowerCase()));
+
+        return ingredientsMatch && applianceMatch && ustensilsMatch;
     }
 
-    // Masquer les éléments de filtre déjà sélectionnés
-    function hideSelectedFilters() {
-        document.querySelectorAll('.filter-item ul li').forEach(filterItem => {
-            const tag = filterItem.textContent.trim();
-
-            // Vérifier si le tag est déjà sélectionné
-            const isSelected = Object.values(selectedTags).some(tags => tags.includes(tag));
-            filterItem.style.display = isSelected ? 'none' : '';
-        });
-    }
+    // Initialisation de la page avec toutes les cartes
+    generateCards(recipes);
 });

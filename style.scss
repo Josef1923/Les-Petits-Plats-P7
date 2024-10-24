@@ -267,6 +267,7 @@ main {
       cursor: pointer;
       background-color: #FFFF;
       font-size: 16px;
+      font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -311,7 +312,7 @@ main {
       transition: max-height 0.4s ease;
 
       &.active {
-        max-height: 370px;        
+        max-height: 380px;        
       }
 
       &.hidden {
@@ -350,7 +351,7 @@ main {
         list-style: none;
         padding: 0;
         margin: 0;
-        max-height: 370px;        
+        max-height: 380px;        
         min-height: 10px;
         overflow-y: auto;
 
@@ -397,7 +398,7 @@ main {
     margin-bottom: 40px;
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
 
     li {
       background: rgba(255, 209, 91, 1);
@@ -415,4 +416,12 @@ main {
       }
     }
   }
+}
+
+.no-results-message {
+  font-size: 30px;
+  font-weight: 800;
+  color: black;
+  margin-top: 20px;
+  margin-left: 100px;
 }
