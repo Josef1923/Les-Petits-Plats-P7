@@ -122,10 +122,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Filtrage des cartes selon les filtres sélectionnés et les résultats de recherche
     function filterCards() {
-        if (!recipes || recipes.length === 0) {
-            console.error("Aucune recette disponible.");
-            return;
-        }
 
         const filteredRecipes = (filteredBySearch.length > 0 ? filteredBySearch : recipes)
             .filter(recipe => matchesFilters(recipe));
