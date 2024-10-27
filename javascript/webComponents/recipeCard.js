@@ -41,19 +41,23 @@ class Card {
 
 // Fonction pour insérer toutes les cards dans le conteneur
 function generateCards(recipes) {
-    const cardsContainer = document.querySelector(".cards-container");
+    const cardsContainer = document.querySelector('.cards-container');
+    cardsContainer.innerHTML = '';  // Vider le conteneur avant d'ajouter les nouvelles cartes
 
-    cardsContainer.innerHTML = "";
-
-    //Genre une card/recette
+    // Générer les cartes pour chaque recette
     recipes.forEach(recipe => {
         const card = new Card(recipe);
         cardsContainer.innerHTML += card.generateCard();
     });
 
-    // Maj filtres en fonction des recettes affichées
+    // Reinitialiser la variable cards avec les nouvelles cartes générées
+    cards = Array.from(document.querySelectorAll('.card'));
+
+    // Après la génération des cartes, mettre à jour les filtres disponibles
     const filtersComponent = document.querySelector('filters-components');
-    filtersComponent.updateFilters(recipes);
+    if (filtersComponent) {
+        filtersComponent.updateFilters(recipes);  // Mise à jour des options du dropdown
+    }
 }
 
 generateCards(recipes);
