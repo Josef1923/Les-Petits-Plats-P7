@@ -74,7 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const query = event.target.value.trim(); // Supprimer les espaces inutiles
 
             if (query.length >= 3) {
-                filteredBySearch = searchRecipesWithArray(query);  // Mettre à jour avec les résultats de la recherche
+                filteredBySearch = searchRecipesWithLoopFor(query);  // Mettre à jour avec les résultats de la recherche
             } else {
                 filteredBySearch = recipes;  // Si moins de 3 caractères, restaurer toutes les recettes
             }
@@ -89,14 +89,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Fonction de recherche utilisant des boucles
-    function searchRecipesWithArray(query) {
-        return recipes.filter(recipe =>
-            recipe.name.toLowerCase().includes(query.toLowerCase()) ||
-            recipe.description.toLowerCase().includes(query.toLowerCase()) ||
-            recipe.ingredients.some(ingredient =>
-                ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
-            )
-        );
+    function searchRecipesWithLoopFor(query) {
+        let filteredRecipes = [];
+
+        // Boucler sur les recettes
+        for (let i = 0; i < recipes.length; i++) {
+            let recipe = recipes[i];
+
+            // Vérifier si le nom, la description ou les ingrédients correspondent à la requête
+            if (recipe.name.toLowerCase().includes(query.toLowerCase()) ||
+                recipe.description.toLowerCase().includes(query.toLowerCase()) ||
+                recipe.ingredients.some(ingredient =>
+                    ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
+                )) {
+                // Ajouter la recette filtrée au tableau des résultats
+                filteredRecipes.push(recipe);
+            }
+        }
+
+        return filteredRecipes; // Retourner les recettes filtrées
     }
 
     // Fonction pour afficher un message si aucun résultat n'est trouvé
