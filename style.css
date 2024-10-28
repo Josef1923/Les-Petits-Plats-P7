@@ -30,7 +30,7 @@ header .header-box .logo {
   margin-left: 69px;
   margin-top: 51px;
 }
-header .header-box .paragraph {
+header .header-box .titre {
   font-family: "Anton", sans-serif;
   color: #FFD15B;
   z-index: 1;
@@ -40,13 +40,13 @@ header .header-box .paragraph {
   padding-top: 275px;
 }
 @media (max-width: 768px) {
-  header .header-box .paragraph {
+  header .header-box .titre {
     font-size: 32px;
     padding-top: 150px;
   }
 }
 @media (max-width: 480px) {
-  header .header-box .paragraph {
+  header .header-box .titre {
     font-size: 24px;
     padding-top: 100px;
   }
