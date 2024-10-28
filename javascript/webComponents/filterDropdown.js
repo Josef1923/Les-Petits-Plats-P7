@@ -63,7 +63,7 @@ class FiltersComponents extends HTMLElement {
                     ${filterType} <img src="assets/icons/vector1.svg" alt="Icone">
                 </button>
                 <div class="dropdown hidden">
-                    <input type="text" class="svg-input" placeholder=""  tabindex="0">
+                    <input type="text" class="svg-input" placeholder="" aria-label="${filterType} Search" tabindex="0">
                     <img src="assets/icons/magnifyingGlassFilter.svg" class="dropdown-icon" alt="Recherche">
                     <ul>
                         ${options.map(option => `<li>${option}</li>`).join('')}
@@ -72,6 +72,9 @@ class FiltersComponents extends HTMLElement {
             </div>
         `;
     }
+
+
+
 
     // Extraction des ingrédients depuis les recettes visibles
     getIngredientsFromRecipes(recipes) {
