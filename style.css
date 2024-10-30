@@ -311,6 +311,10 @@ main .filter-item .dropdown .svg-input {
 main .filter-item .dropdown .svg-input.hidden {
   opacity: 0;
 }
+main .filter-item .dropdown .svg-input:focus {
+  outline: none;
+  border-color: black;
+}
 @media (max-width: 768px) {
   main .filter-item .dropdown .svg-input {
     width: 140px;

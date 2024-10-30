@@ -329,6 +329,11 @@ main {
           opacity: 0;
         }
 
+        &:focus {
+          outline: none; 
+          border-color: black; 
+        }
+
         @media (max-width: 768px) {
           width: 140px;
           margin-left: 10px;
