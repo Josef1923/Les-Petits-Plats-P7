@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // Ajout du tag dans le conteneur des filtres
-    function addFilter(tag, filterType, filterItem) {
+    function addFilter(tag, filterType) {
         const li = document.createElement('li');
         li.setAttribute('data-filter', tag);
         li.innerHTML = `
@@ -34,14 +34,10 @@ window.addEventListener('DOMContentLoaded', () => {
             <img src="assets/icons/closeVector.svg" class="close-vector" alt="Supprimer le filtre">
         `;
 
-        // Masquer <li> sélectionné dans la liste des filtres
-        filterItem.style.display = 'none';
-
         // Suppression du tag
         li.querySelector('.close-vector').addEventListener('click', () => {
             li.remove();
             updateTags(tag, filterType, 'remove');
-            filterItem.style.display = '';
             filterCards();
         });
 
@@ -132,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Mettre à jour les filtres disponibles après filtrage
         const filtersComponent = document.querySelector('filters-components');
         if (filtersComponent) {
-            filtersComponent.updateFilters(filteredRecipes);
+            filtersComponent.updateFilters(filteredRecipes, selectedTags);
         }
     }
 

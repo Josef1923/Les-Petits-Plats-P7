@@ -7,10 +7,16 @@ class FiltersComponents extends HTMLElement {
     }
 
     // Maj des filtres selon les recettes visibles
-    updateFilters(recipes) {
-        const ingredients = this.getIngredientsFromRecipes(recipes);
-        const appliances = this.getAppliancesFromRecipes(recipes);
-        const ustensils = this.getUstensilsFromRecipes(recipes);
+    updateFilters(recipes, selectedTags) {
+        let ingredients = this.getIngredientsFromRecipes(recipes);
+        let appliances = this.getAppliancesFromRecipes(recipes);
+        let ustensils = this.getUstensilsFromRecipes(recipes);
+
+        if (selectedTags !== undefined) {
+            ingredients = ingredients.filter(ingredient => !selectedTags.ingredients.includes(ingredient));
+            appliances = appliances.filter(appliance => !selectedTags.appliances.includes(appliance));
+            ustensils = ustensils.filter(ustensil => !selectedTags.ustensils.includes(ustensil));
+        }
 
         // Créer le conteneur des filtres
         this.querySelector('.filter-container').innerHTML = `
