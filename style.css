@@ -297,7 +297,7 @@ main .filter-item .dropdown {
   transition: max-height 0.4s ease;
 }
 main .filter-item .dropdown.active {
-  max-height: 380px;
+  max-height: 400px;
 }
 main .filter-item .dropdown.hidden {
   max-height: 0;
@@ -307,9 +307,6 @@ main .filter-item .dropdown .svg-input {
   border: 1px solid #ccc;
   margin-left: 16px;
   height: 36px;
-}
-main .filter-item .dropdown .svg-input.hidden {
-  opacity: 0;
 }
 main .filter-item .dropdown .svg-input:focus {
   outline: none;
@@ -337,15 +334,19 @@ main .filter-item .dropdown ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 380px;
+  max-height: 315px;
   min-height: 10px;
-  overflow-y: auto;
+  overflow: auto;
+  font-weight: 500;
+  font-size: 16px;
 }
 main .filter-item .dropdown ul li {
   padding-left: 16px;
-  padding-bottom: 6px;
-  padding-top: 6px;
+  padding-bottom: 7px;
+  padding-top: 7px;
   cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
 }
 main .filter-item .dropdown ul li:hover {
   background-color: rgb(255, 209, 91);

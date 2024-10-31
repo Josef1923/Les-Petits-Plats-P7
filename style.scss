@@ -312,7 +312,7 @@ main {
       transition: max-height 0.4s ease;
 
       &.active {
-        max-height: 380px;        
+        max-height: 400px;        
       }
 
       &.hidden {
@@ -324,10 +324,6 @@ main {
         border: 1px solid #ccc;
         margin-left: 16px;
         height: 36px;
-
-        &.hidden {
-          opacity: 0;
-        }
 
         &:focus {
           outline: none; 
@@ -356,15 +352,19 @@ main {
         list-style: none;
         padding: 0;
         margin: 0;
-        max-height: 380px;        
+        max-height: 315px;        
         min-height: 10px;
-        overflow-y: auto;
+        overflow: auto;
+        font-weight: 500;
+        font-size: 16px;
 
         li {
           padding-left: 16px;
-          padding-bottom: 6px;
-          padding-top: 6px;
+          padding-bottom: 7px;
+          padding-top: 7px;
           cursor: pointer;
+          font-weight: 400;
+          font-size: 14px;
 
           &:hover {
             background-color: rgba(255, 209, 91, 1);
