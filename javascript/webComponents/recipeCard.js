@@ -50,9 +50,6 @@ function generateCards(recipes) {
         cardsContainer.innerHTML += card.generateCard();
     });
 
-    // Reinitialiser la variable cards avec les nouvelles cartes générées
-    cards = Array.from(document.querySelectorAll('.card'));
-
     // Après la génération des cartes, mettre à jour les filtres disponibles
     const filtersComponent = document.querySelector('filters-components');
     if (filtersComponent) {
