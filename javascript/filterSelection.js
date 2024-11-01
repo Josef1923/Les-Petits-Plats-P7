@@ -89,8 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let filteredRecipes = [];
 
         // Boucler sur les recettes
-        for (let i = 0; i < recipes.length; i++) {
-            let recipe = recipes[i];
+        for (const recipe of recipes) {
 
             // Vérifier si le nom, la description ou les ingrédients correspondent à la requête
             if (recipe.name.toLowerCase().includes(query.toLowerCase()) ||
