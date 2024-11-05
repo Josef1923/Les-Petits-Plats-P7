@@ -113,6 +113,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 <p>Aucune recette ne contient '${query}'. Vous pouvez essayer de chercher "tarte aux pommes", "poisson", etc.</p>
             </div>
         `;
+
+        const filtersComponent = document.querySelector('filters-components');
+        if (filtersComponent) {
+            filtersComponent.updateFilters([], selectedTags); // Met à jour le compteur avec 0 recettes
+        }
     }
 
     // Filtrage des cartes selon les filtres sélectionnés et les résultats de recherche
