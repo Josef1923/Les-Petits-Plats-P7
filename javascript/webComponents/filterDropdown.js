@@ -79,9 +79,6 @@ class FiltersComponents extends HTMLElement {
         `;
     }
 
-
-
-
     // Extraction des ingrédients depuis les recettes visibles
     getIngredientsFromRecipes(recipes) {
         return Array.from(
