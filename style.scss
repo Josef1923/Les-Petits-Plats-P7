@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Manrope', sans-serif;
+  
 }
 
 header {
@@ -13,6 +14,10 @@ header {
     height: 667px;
     position: relative;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
 
     img {
       width: 100%;
@@ -29,6 +34,11 @@ header {
       height: 25px;
       margin-left: 69px;
       margin-top: 51px;
+
+      
+      @media (max-width: 480px) {
+          margin-left: 50px;
+      }
     }
 
     .titre {
@@ -47,7 +57,7 @@ header {
 
       @media (max-width: 480px) {
         font-size: 24px;
-        padding-top: 100px;
+        padding-top: 130px;
       }
     }
 
@@ -57,8 +67,19 @@ header {
 
       .submit-button {
         position: relative;
-        width: 100%;
-        width: 954px;
+        width: 954px;    
+        margin-top: 20px;    
+
+        @media (max-width: 768px) {          
+          margin-left: auto;
+          margin-right: auto;
+          width: 80%;
+        }
+
+        @media (max-width: 480px) {          
+          margin-top: 40px;
+        }
+
 
         .bar {
           width: 100%;
@@ -73,10 +94,9 @@ header {
             font-size: 16px;
           }
 
-          @media (max-width: 480px) {
-            height: 50px;
-            font-size: 14px;
-          }
+         @media (max-width: 480px) {
+          font-size: 14px;
+         }
         }
 
         .search-icon {
@@ -129,10 +149,16 @@ main {
       flex-direction: column;
       align-items: flex-start;
       gap: 20px;
+      padding-left: 50px;
+      padding-bottom: 35px;
 
       .recipe-counter {
         align-self: flex-start;
       }
+    }
+
+    @media (max-width: 480px) {
+      padding: none;
     }
   }
 
@@ -149,7 +175,7 @@ main {
     }
 
     @media (max-width: 480px) {
-      padding: 0 20px;
+      padding: none;
       gap: 20px;
     }
   }
@@ -291,10 +317,12 @@ main {
       }
 
       @media (max-width: 480px) {
-        width: 100%;
+        width: 150px;
         height: 40px;
         font-size: 12px;
       }
+     
+      
     }
 
     .dropdown {
@@ -336,7 +364,7 @@ main {
         }
 
         @media (max-width: 480px) {
-          width: 90px;
+          width: 130px;
           height: 30px;
         }
       }
@@ -405,6 +433,10 @@ main {
     gap: 20px;
     flex-wrap: wrap;
 
+    @media (max-width: 768px) {
+      padding-left: 50px;
+    }
+
     li {
       background: rgba(255, 209, 91, 1);
       height: 53px;
@@ -419,6 +451,10 @@ main {
       .close-vector {
         cursor: pointer;
       }
+      @media (max-width: 480px) {
+        height: 40px;
+        gap: 40px;
+      }     
     }
   }
 }
@@ -429,4 +465,14 @@ main {
   color: black;
   margin-top: 20px;
   margin-left: 100px;
+
+  @media (max-width: 768px) {
+    margin-left: 0px;
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 }
