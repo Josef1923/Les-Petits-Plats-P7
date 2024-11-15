@@ -164,11 +164,6 @@ main .filter-container .recipe-counter {
     align-self: flex-start;
   }
 }
-@media (max-width: 480px) {
-  main .filter-container {
-    padding: none;
-  }
-}
 main .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -184,7 +179,6 @@ main .cards-container {
 }
 @media (max-width: 480px) {
   main .cards-container {
-    padding: none;
     gap: 20px;
   }
 }

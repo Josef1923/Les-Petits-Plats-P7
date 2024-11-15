@@ -170,10 +170,6 @@ main {
         align-self: flex-start;
       }
     }
-
-    @media (max-width: 480px) {
-      padding: none;
-    }
   }
 
   .cards-container {
@@ -189,7 +185,6 @@ main {
     }
 
     @media (max-width: 480px) {
-      padding: none;
       gap: 20px;
     }
   }
