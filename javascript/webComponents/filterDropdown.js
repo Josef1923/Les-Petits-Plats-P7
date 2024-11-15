@@ -69,7 +69,7 @@ class FiltersComponents extends HTMLElement {
                     ${filterType} <img src="assets/icons/vector1.svg" alt="Icone">
                 </button>
                 <div class="dropdown hidden">
-                    <input type="text" class="svg-input" placeholder="" aria-label="${filterType} Search" tabindex="0">
+                    <input type="search" class="svg-input" placeholder="" aria-label="${filterType} Search" tabindex="0">
                     <img src="assets/icons/magnifyingGlassFilter.svg" class="dropdown-icon" alt="Recherche">
                     <ul>
                         ${options.map(option => `<li>${option}</li>`).join('')}

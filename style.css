@@ -90,6 +90,18 @@ header .header-box .search-bar .submit-button .bar {
   border-radius: 11px;
   text-indent: 20px;
 }
+header .header-box .search-bar .submit-button .bar::-webkit-search-cancel-button {
+  position: relative;
+  margin-right: 75px;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: #7A7A7A;
+  -webkit-mask: url("assets/icons/closeVector.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  width: 16px;
+  height: 16px;
+}
 @media (max-width: 768px) {
   header .header-box .search-bar .submit-button .bar {
     height: 60px;
@@ -335,6 +347,18 @@ main .filter-item .dropdown .svg-input {
   border: 1px solid #ccc;
   margin-left: 16px;
   height: 36px;
+}
+main .filter-item .dropdown .svg-input::-webkit-search-cancel-button {
+  position: relative;
+  margin-right: 28px;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: #7A7A7A;
+  -webkit-mask: url("assets/icons/closeVector.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  width: 8px;
+  height: 8px;
 }
 main .filter-item .dropdown .svg-input:focus {
   outline: none;
