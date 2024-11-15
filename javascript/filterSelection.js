@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fonction de recherche utilisant des boucles
+    // Fonction de recherche utilisant filter (programmation foonctionnelle)
     function searchRecipesWithArray(query) {
         return recipes.filter(recipe =>
             recipe.name.toLowerCase().includes(query.toLowerCase()) ||
