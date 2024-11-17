@@ -79,25 +79,46 @@ class FiltersComponents extends HTMLElement {
         `;
     }
 
-    // Extraction des ingrédients depuis les recettes visibles
+    // Extraction des ingrédients avec première lettre en majuscule
     getIngredientsFromRecipes(recipes) {
         return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ingredients.map(ingredient => ingredient.ingredient)))
+            new Set(
+                recipes.flatMap(recipe =>
+                    recipe.ingredients.map(ingredient =>
+                        this.capitalize(ingredient.ingredient)
+                    )
+                )
+            )
         ).sort();
     }
 
-    // Extraction des appareils depuis les recettes visibles
+    // Extraction des appareils avec première lettre en majuscule
     getAppliancesFromRecipes(recipes) {
         return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.appliance))
+            new Set(
+                recipes.flatMap(recipe =>
+                    this.capitalize(recipe.appliance)
+                )
+            )
         ).sort();
     }
 
-    // Extraction des ustensiles depuis les recettes visibles
+    // Extraction des ustensiles avec première lettre en majuscule
     getUstensilsFromRecipes(recipes) {
         return Array.from(
-            new Set(recipes.flatMap(recipe => recipe.ustensils))
+            new Set(
+                recipes.flatMap(recipe =>
+                    recipe.ustensils.map(ustensil =>
+                        this.capitalize(ustensil)
+                    )
+                )
+            )
         ).sort();
+    }
+
+    // Fonction utilitaire pour mettre la première lettre en majuscule
+    capitalize(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     }
 
     // Bascule affichage du dropdown
