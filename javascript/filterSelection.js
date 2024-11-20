@@ -90,24 +90,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Boucler sur les recettes
         for (const recipe of recipes) {
-
             // Vérifier si le nom ou la description correspondent à la requête
             if (recipe.name.toLowerCase().includes(query.toLowerCase()) ||
                 recipe.description.toLowerCase().includes(query.toLowerCase())) {
+                // Ajouter directement la recette si une correspondance est trouvée
+                filteredRecipes.push(recipe);
+                continue; // Passer à la prochaine recette (inutile de vérifier les ingrédients)
+            }
 
-                // Partie pour remplacer "some" suite à la soutenance
-                let ingredientMatch = false;
-                for (const ingredient of recipe.ingredients) {
-                    if (ingredient.ingredient.toLowerCase().includes(query.toLowerCase())) {
-                        ingredientMatch = true;
-                        break;
-                    }
+            // Vérifier les ingrédients seulement si nom et description ne correspondent pas
+            let ingredientMatch = false;
+            for (const ingredient of recipe.ingredients) {
+                if (ingredient.ingredient.toLowerCase().includes(query.toLowerCase())) {
+                    ingredientMatch = true; // Un ingrédient correspond
+                    break; // Pas besoin de continuer à vérifier les autres ingrédients
                 }
+            }
 
-                // Si un ingrédient correspond ou si le nom/description correspondent, ajouter la recette
-                if (ingredientMatch) {
-                    filteredRecipes.push(recipe);
-                }
+            // Ajouter la recette si une correspondance dans les ingrédients est trouvée
+            if (ingredientMatch) {
+                filteredRecipes.push(recipe);
             }
         }
 
