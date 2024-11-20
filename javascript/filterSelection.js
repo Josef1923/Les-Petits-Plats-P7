@@ -91,19 +91,29 @@ window.addEventListener('DOMContentLoaded', () => {
         // Boucler sur les recettes
         for (const recipe of recipes) {
 
-            // Vérifier si le nom, la description ou les ingrédients correspondent à la requête
+            // Vérifier si le nom ou la description correspondent à la requête
             if (recipe.name.toLowerCase().includes(query.toLowerCase()) ||
-                recipe.description.toLowerCase().includes(query.toLowerCase()) ||
-                recipe.ingredients.some(ingredient =>
-                    ingredient.ingredient.toLowerCase().includes(query.toLowerCase())
-                )) {
-                // Ajouter la recette filtrée au tableau des résultats
-                filteredRecipes.push(recipe);
+                recipe.description.toLowerCase().includes(query.toLowerCase())) {
+
+                // Partie pour remplacer "some" suite à la soutenance
+                let ingredientMatch = false;
+                for (const ingredient of recipe.ingredients) {
+                    if (ingredient.ingredient.toLowerCase().includes(query.toLowerCase())) {
+                        ingredientMatch = true;
+                        break;
+                    }
+                }
+
+                // Si un ingrédient correspond ou si le nom/description correspondent, ajouter la recette
+                if (ingredientMatch) {
+                    filteredRecipes.push(recipe);
+                }
             }
         }
 
         return filteredRecipes; // Retourner les recettes filtrées
     }
+
 
     // Fonction pour afficher un message si aucun résultat n'est trouvé
     function displayNoResultsMessage(query) {
